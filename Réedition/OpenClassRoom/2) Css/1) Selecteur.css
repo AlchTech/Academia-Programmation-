@@ -1,0 +1,129 @@
+/* -------------------------------------------- Architecture sélecteur ------------------------------------------ */
+
+selecteur {propiete: valeur;}
+
+selecteur {
+		propiete: valeur;
+	}
+
+/* Selecteur multiple contenant le même attribut*/
+selecteur, selecteur {
+		propiete: valeur;
+	}
+
+/* Selecteur Avancée, permet de grouper des selecteurs par défault en un nouveau selecteur */
+selecteur selecteur {
+		propiete: valeur;
+	}
+
+/* Selecteur attribut, permet de selectionner selecteur(class, id, h1..) contenants l'attribut(title, target, all..)  */
+selecteur[Nom_attribut_HTML]{
+		propriete: valeur;
+	}	
+
+/* Selecteur attribut, permet de selectionner selecteur(class, id, h1..) contenants l'attribut(title, target, all..)
+avec sa valeur  */
+selecteur[Nom_attribut_HTML="Nom_valeur"]{
+		propriete: valeur;
+	}
+
+/* Selecteur attribut, permet de selectionner le selecteur(class, id, h1..) contenants l'attribut(title, target, all..)
+avec sa valeurs commencant par le nom de la valeur. L'étoile * permet la sélection et l'autocplétation */
+selecteur[Nom_attribut_HTML*="Nom_valeur"]{
+		propriete: valeur;
+	}	
+
+
+/* -------------------------------------------- Autres Architectures Selecteur --------------------------------- */
+/* Pour voir les autres Selecteur https://developer.mozilla.org/fr/docs/Web/CSS/Pseudo-classes */
+Pour modifié l'élément au passage de la souris.
+	selecteur:hover{
+		propriete: valeur;
+	}
+
+
+Pour modifié l'élément quand l'utilisateur click dessus.
+	selecteur:active{
+		propriete: valeur;
+	}
+
+
+Pour modifié lélément quand il est actif 
+	selecteur:focus{
+		propriete: valeur;
+	}
+
+
+Pour modifier l'élément quand il a était visité.
+	selecteur:visited{
+		propriete: valeur;
+	}
+
+
+Permet d'ajouter un élément avent le selecteur.
+	selecteur:before{
+		propriete: valeur;
+	}
+
+
+Permet d'ajouter un élément après le selecteur.
+	selecteur:after{
+		propriete: valeur;
+	}
+
+
+Permet de séléctionner un élément dans un conteneur, (3) = 3éme élément du conteneur.
+	selecteur:nth-child(3){
+		propriete: valeur;
+	} 
+
+
+/* -------------------------------------------- selecteur / balise de base ------------------------------------------------- */
+
+Il existe deux type de balise
+/* Les balise inline ne font pas de retour à la ligne */
+Les balises inline	(<a>, <span>)
+/* Les balise inline font retour à la ligne */
+Les balises block (<img>, <p>, <div>..)
+
+/* Ceci est un commmentaire CSS */   raccourci : ctrl + /
+
+
+/* Ceci permet d'appeler notre classe html [Utilisable plusieurs fois] */
+.nom_class 
+
+.nom_class img
+
+/* Ceci permet d'appeler notre id html [Identifiant unique] */
+#nom_id
+
+#nom_id img
+
+/* Selecteur par défault */
+head
+body
+header
+nav
+section
+aside
+section
+div
+
+title
+h1
+h2
+h3
+h4
+h5
+h6
+
+p
+span
+ul
+ol
+li
+
+a
+img
+canvas
+...

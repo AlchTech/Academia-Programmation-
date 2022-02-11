@@ -1,0 +1,158 @@
+/* | Type de boite */
+
+Il existe deux type de boite :
+
+inline : En ligne
+
+block : En colonne
+
+Nous pouvons modifier le type d'affichage ! Attention seul les éléments block peuveut être redimensionner:
+
+inline -> block 
+Selecteur{
+	display: block;
+}
+
+block -> inline 
+Selecteur{
+	display: flex;
+}
+
+
+inline & block
+Selecteur{
+	display: inline-block;
+}
+
+
+
+
+/* || Parties d'une boite */
+
+Content box "contenu": valeur = width, height
+
+Padding box "marge intérieure": valeur = padding
+
+Border box "bordure": valeur = border
+
+Margin box "marge exterieure": valeur = margin
+
+c'est donc content qui définit la taille de la boite, si on veut que cela soit border, il vous fraudra utilisé 
+
+html{box-sizing: border-box}
+*, *::before, *::after {box-sizing: inherit;}
+
+
+
+
+
+
+/* ||| Margin, Padding, Border d'une boite */
+
+Selecteur{
+	/* Marge intérieur*/
+	padding: 1%;
+	padding-top: 1%;
+	padding-bottom: 1%;
+	padding-left: 1%;
+	padding-right: 1%;
+
+	/* Marge extérieure */
+	margin: 1%;
+	margin-top: 1%;
+	margin-bottom: 1%;
+	margin-left: 1%;
+	margin-right: 1%;
+
+	/* Bordure */
+	border: 0.5% black solid;
+	border-top: 0.5% black solid;
+	border-right: 0.5% black solid;
+	border-bottom: 0.5% black solid;
+	border-left: 0.5% black solid;
+	/* Permet d'arrondir les angles ! Il faut définir un border pour pouvoir arrondir les angles ! */
+	/* Pour caché les éléments qui dépasse utitlisé overflow: hidden; (angle image)*/
+	border-radius: 1% 1% 1% 1%;
+	}
+
+
+
+
+
+
+/* |||| width(largeur) & height(hauteur) d'une boite */
+
+La taille d'un objet / boite sans modification css s'appelle la taille intrinsèque.
+La taille d'un objet / boite avec modification css s'appelle la taille extrinsèque.
+
+selecteur {
+	/* Permet de définir une largeur maximal de la boite si cette largeur est atteint la boite rétrécit */
+	max-width: 90%;
+	/* Permet de définir une largeur minimal de la boite si cette largeur est atteint la boite grossira */
+	min-width: 10%;
+	/* Permet de définir une largeur de la boite exactement */
+	width: 60%;
+
+
+	/* Permet de définir une hauteur maximal de la boite si cette hauteur est atteint la boite rétrécit */
+	max-height: 90%;
+	/* Permet de définir une hauteur minimal de la boite si cette hauteur est atteint la boite grossira */
+	min-height: 10%;
+	/* Permet de définir une hauteur de la boite exactement */
+	height: 60%;
+	}
+
+
+/* ||||| Décoration des boites */
+
+Selecteur{
+	/* Transparence de la boite */
+	opacity: 1%;
+
+	/* Permet de définir les ombres de la la boite Horizontale / Verticale / Fondu / Couleur*/
+	box-shadow: 1% 1% 1% color; 
+
+	/* Permet de mettre un effet de transition à un élément, exemple affichage ombres:hover */
+	transition: 2s;
+
+	/* Permet de définir la couleur du fond de la boite*/
+	background-color: color;
+	background-color: #F2F2F2;
+	background-color: rgba();
+
+	/* Permet de faire des dégradés*/
+	https://developer.mozilla.org/en-US/docs/Web/CSS/gradient
+	background: linear-gradient(90deg, to right,red, orange, yellow, green, blue, indigo, violet);
+	background: radial-gradient(red, yellow, rgb(30, 144, 255));
+	background: repeating-linear-gradient(to top left, lightpink, lightpink 5px, white 5px, white 10px);
+	background: repeating-radial-gradient(powderblue, powderblue 8px, white 8px, white 16px);
+	background: conic-gradient(lightpink, white, powderblue);
+
+
+	/* Permet d'insérer une image en fond de boite*/
+	background-image: url();
+	/* Permet couvrir le fond de la boite avec sont image*/
+	background-size: cover; 
+	background-size: contain; 
+
+	/*Permet de positionner le fond dans sa boite*/
+	background-position: center; 
+	background-position: top;
+	background-position: bottom;
+	background-position: left;
+	background-position: right;
+	background-position: 1%, 1%;
+
+	/* Attachement du fond de la boite */
+	/* Le fond reste fixe*/
+	background-attachment: fixed;
+	/* Le fond vous suis le long de la page */
+	background-attachment: scroll;
+
+	/* Repetition du fond de la boite */
+	/* Si l'image est trop petite, elle se répétera la long de la page */
+	background-repeat: repeat;
+	/* Si l'image est trop petite, elle se répétera pas et restera à sa dimension */
+	background-repeat: no-repeat;
+
+}

@@ -1,0 +1,87 @@
+/* || MediaQuery */
+
+Pour les types de media , vous avez le choix entre :
+	screen: Ecran d'ordinateur
+	handheld: Périphérique mobile
+	print: Imprimante et impression
+	tv: Télévision
+	projection: Projecteur
+	all: tous les types d'écran
+
+
+Vous pouvez aussi choisir plusieurs paramètres :
+	color: gestion de la couleur (bits/pixel)
+	height: hauteur de la fenêtre
+	width: largeur de la fenêtre
+	device-height: hauteur du périphérique
+	device-width: largeur du périphérique
+	orientation: orientation du périphérique (portrait / paysage)
+
+
+Navigateur | Largeur du viewport par défaut
+
+Windows Phone : 1024 pixels
+
+iPhone Safari : 980 pixels
+
+Android : 800 pixels
+
+Opera Mobile : 850 pixels
+
+/* || Option1 */
+/* Charger une nouvelle feuille de style */
+<link rel="stylesheet" type="text/css" href="small_viewport.css" media="all (max-width:1024px)	">
+
+/* || Option2 */
+/* @Media */
+@media all and (max-width: 1024px){
+	/* Permet de mofier les éléments à modifier en fonction de la taille de l'écran*/
+	h1{font-size: 10em;}
+}
+
+
+
+
+
+
+
+
+
+
+/* || Souris intéraction */
+.alias {cursor: alias;}
+.all-scroll {cursor: all-scroll;}
+.auto {cursor: auto;}
+.cell {cursor: cell;}
+.context-menu {cursor: context-menu;}
+.col-resize {cursor: col-resize;}
+.copy {cursor: copy;}
+.crosshair {cursor: crosshair;}
+.default {cursor: default;}
+.e-resize {cursor: e-resize;}
+.ew-resize {cursor: ew-resize;}
+.grab {cursor: -webkit-grab; cursor: grab;}
+.grabbing {cursor: -webkit-grabbing; cursor: grabbing;}
+.help {cursor: help;}
+.move {cursor: move;}
+.n-resize {cursor: n-resize;}
+.ne-resize {cursor: ne-resize;}
+.nesw-resize {cursor: nesw-resize;}
+.ns-resize {cursor: ns-resize;}
+.nw-resize {cursor: nw-resize;}
+.nwse-resize {cursor: nwse-resize;}
+.no-drop {cursor: no-drop;}
+.none {cursor: none;}
+.not-allowed {cursor: not-allowed;}
+.pointer {cursor: pointer;}
+.progress {cursor: progress;}
+.row-resize {cursor: row-resize;}
+.s-resize {cursor: s-resize;}
+.se-resize {cursor: se-resize;}
+.sw-resize {cursor: sw-resize;}
+.text {cursor: text;}
+.url {cursor: url(myBall.cur),auto;}
+.w-resize {cursor: w-resize;}
+.wait {cursor: wait;}
+.zoom-in {cursor: zoom-in;}
+.zoom-out {cursor: zoom-out;}

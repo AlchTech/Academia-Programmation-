@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title>Cours : Document Objet Model DOM</title>
+		<meta name="description" content="" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="./dom.css" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"
+			rel="stylesheet"
+		/>
+	</head>
+	<body>
+		<!--[if lt IE 7]>
+			<p class="browsehappy">
+				You are using an <strong>outdated</strong> browser. Please
+				<a href="#">upgrade your browser</a> to improve your experience.
+			</p>
+		<![endif]-->
+
+		<header>
+			<h1>Document Objet Model DOM</h1>
+		</header>
+
+		<main>
+			<!-- Déclaration DOM -->
+			<article id="DOM">
+				<h2>Document Objet Model :</h2>
+
+				<h3>Document :</h3>
+				<p>
+					Le document va parcourir les éléments à partir de l'éléments racine,
+					par défault celui-ci est &lt;html&gt;&lt;/html&gt;.
+				</p>
+				<img src="./images/tree.jpg" alt="tree DOM" id="tree" />
+
+				<h3>DOM association et récupération :</h3>
+				<h4>Importation du fichiers.js</h4>
+				<img
+					src="./images/declarationHTML.png"
+					alt="declarationHTML"
+					id="declarationHTML"
+				/>
+
+				<h4>Récupère élément du DOM dans fichier.js</h4>
+				<img
+					src="./images/declarationJS.png"
+					alt="declarationJS"
+					id="declarationJS"
+				/>
+
+				<h4>Récupère élément à partir d'un autre élément parent</h4>
+				<img
+					src="./images/aPartirElement.png"
+					alt="aPartirElement"
+					id="aPartirElement"
+				/>
+			</article>
+
+			<article id="fonctionnement DOM">
+				<h3>Fonctionnalité du DOM :</h3>
+				<h4>DOM Création et Ajout d'élément dans le DOM</h4>
+				<img
+					src="./images/ajoutElement.png"
+					alt="ajoutElement"
+					id="ajoutElement"
+				/>
+				<h4>DOM création et Ajout de contenue Textuel / Attribut / Style</h4>
+				<img src="./images/ajoutOther.png" alt="ajoutOther" id="ajoutOther" />
+
+				<h4>Parentage et Placement d'élément dans le DOM</h4>
+				<img src="./images/placement.png" id="placement" alt="placement" />
+			</article>
+		</main>
+
+		<footer></footer>
+
+		<script src="dom.js" async defer></script>
+	</body>
+</html>

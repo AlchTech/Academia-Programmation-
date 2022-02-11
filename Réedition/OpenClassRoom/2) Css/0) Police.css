@@ -1,0 +1,69 @@
+ /*---------------------------------------------- POLICE ------------------------------------------------------*/
+
+/* Police de base */
+police de base :
+	-> Arial
+	-> Arial Black
+	-> Comic Sans MS
+	-> Courrier New (Favoris)
+	-> Georgia
+	-> Impact
+	-> Times New Roman (défault)
+	-> Trebuchet MS
+	-> Verdana
+
+/* Police personnalisée */
+
+Télécharger les polices sur  un site commme dafont.com
+
+Décompressez le document, enlevez les majuscules et les espaces et la placer dans votre dossier ../src/
+
+Les polices personnalissé doivent être déclarer en fin de page.
+
+	/*Police*/
+	@font-face
+	{
+		font-family: 'nom_police';
+		src: url('../src/nom_police.ttf') format('truetype');
+	}
+
+	/*Déclarer plusieurs format de polices*/
+	@font-face
+	{
+		font-family: 'nom_police';
+		src: url('../src/nom_police.ttf') format('truetype'),
+		src: url('../src/nom_police.eot') format('eot'),
+		src: url('../src/nom_police.svg') format('svg');
+	}
+
+
+/* ---------------------------------------- SELECTEUR DE POLICE --------------------------------------------- */
+/* Permet de selectionné une police */
+	selecteur {
+	font-family: nom_police;
+	}
+
+/* Permet de selectionné plusieur police par ordre de priorité d'affichage. */
+	selecteur {
+	font-family: police1, police2, police3, défault(sans-serif, serif);
+	}
+
+
+/* Appelez la police */
+	selecteur {
+	font-family: nom_police, serif, sans-serif;
+	}
+
+
+/* Appelez la police Google Font */
+Sinon on peut utilisez un service comme google.font.
+Sélectionner la police ou les polices, puis appuyer sur le petit + la il faudrat :
+
+	 /* Le lien link dans le head du fichier HTML */
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+
+	/* Dans le doccument css rajouter le font-family */
+	selecteur {
+	font-family: nom_police, 'Open Sans', sans-serif;
+	}

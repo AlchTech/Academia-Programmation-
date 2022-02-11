@@ -1,0 +1,161 @@
+selecteur {propiete: valeur;}
+
+selecteur 
+	{
+		propiete: valeur;
+	}
+
+/* Selecteur multiple contenant le même attribut*/
+selecteur, selecteur 
+	{
+		propiete: valeur;
+	}
+
+/* Selecteur Avancée, permet de grouper des selecteurs par défault en un nouveau selecteur */
+selecteur selecteur 
+	{
+		propiete: valeur;
+	}
+
+/* Selecteur attribut, permet de selectionner selecteur(class, id, h1..) contenants l'attribut(title, target, all..)  */
+selecteur[Nom_attribut_HTML]
+	{
+		propriete: valeur;
+	}	
+
+/* Selecteur attribut, permet de selectionner selecteur(class, id, h1..) contenants l'attribut(title, target, all..)
+avec sa valeur  */
+selecteur[Nom_attribut_HTML="Nom_valeur"]
+	{
+		propriete: valeur;
+	}
+
+/* Selecteur attribut, permet de selectionner le selecteur(class, id, h1..) contenants l'attribut(title, target, all..)
+avec sa valeurs commencant par le nom de la valeur. L'étoile * permet la sélection et l'autocplétation */
+selecteur[Nom_attribut_HTML*="Nom_valeur"]
+	{
+		propriete: valeur;
+	}	
+
+------------------------------------------------------------------------------------------------------------------------
+
+/* Ceci est un commmentaire CSS */   raccourci : ctrl + /
+
+
+/* Ceci permet d'appeler notre classe html [Utilisable plusieurs fois] */
+.nom_class 
+
+/* Ceci permet d'appeler notre id html [Identifiant unique] */
+#nom_id
+
+/* Selecteur par défault */
+head
+body
+h1
+h2
+h3
+h4
+h5
+h6
+header
+nav
+section
+aside
+section
+span
+em
+...
+
+------------------------------------------------------------------------------------------------------------------------
+/* Police & Taille */
+
+Taille absolue : La taille absolue ne prend pas en compte l'utilisateur, La taille absolue se mesure en Pixel (px). 
+
+ px :
+ 	-> 16px (défault)
+
+Taille relative : La taille relative prend en compte l'utilisateur, la taille relative se mesure en words.
+
+ words :
+
+ 	-> xx-small
+ 	-> x-small
+ 	-> small
+ 	-> medium
+ 	-> large
+ 	-> x-large
+ 	-> xx-large
+
+ em :
+
+ 	-> 1em = taille de base selon l'élément
+
+ Pourcentage % : 
+	-> 100% = taille de base selon l'élément
+
+/* Les attributs*/
+
+/*font-size = police taille et la valeur par défault et 16px [Taille absolue][A éviter]*/
+selecteur {font-size: 16px;}  
+
+/*font-size = police taille et la valeur est words [voir tableau words][Taille relative]*/
+selecteur {font-size: medium;}
+
+/*font-size = police taille et la valeur est em. Elle s'adapte en fonction de la taille de l'élément de base.
+[Taille relative] !!! Choisir par défault  !!! */
+selecteur {font-size: 1.5em} 	/* Plus grand */
+selecteur {font-size: 0.5em}	/* Plus petit */
+
+/*font-size = police taille et la valeur est %. Elle s'adapte en fonction de la taille de l'élément de base.
+[Taille relative]*/
+selecteur {font-size: 150%}		/* Plus grand */
+selecteur {font-size: 50%}		/* Plus petit */
+
+/* Police de base */
+
+police de base :
+	-> Arial
+	-> Arial Black
+	-> Comic Sans MS
+	-> Courrier New (Favoris)
+	-> Georgia
+	-> Impact
+	-> Times New Roman (défault)
+	-> Trebuchet MS
+	-> Verdana
+
+/* Permet de selectionné une police */
+selecteur {font-family: nom_police;}
+
+/* Permet de selectionné plusieur police par ordre de priorité d'affichage. */
+selecteur {font-family: police1, police2, police3, défault(sans-serif, serif);}
+
+/* Police personnalisée */
+
+Télécharger les polices sur  un site commme dafont.com
+
+Décompressez le document, enlevez les majuscules et les espaces et la placer dans votre dossier ../src/
+
+Les polices personnalissé doivent être déclarer en fin de page.
+	
+	/*Police*/
+	@font-face 
+	{
+		font-family: 'nom_police'
+		src: url('../src/nom_police.ttf') format('truetype');
+	}
+
+	/*Applez la police*/
+
+	selecteur {font-family: nom_police, serif, sans-serif;}
+
+Sinon on peut utilisez un service comme google.font.
+
+Sélectionner la police, puis appuyer sur le petit + la il faudrat :
+
+	 /* Le lien link dans le head du fichier HTML */
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+
+	/* Dans le doccument css rajouter le font-family */
+	font-family: 'Open Sans', sans-serif;

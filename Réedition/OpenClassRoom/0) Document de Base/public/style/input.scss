@@ -1,0 +1,6 @@
+body{background-color: red;}
+@import "./sass_modules/utils/mediaqueries.scss";
+
+@include for-big-desktop-up{
+    background-color: red;
+}

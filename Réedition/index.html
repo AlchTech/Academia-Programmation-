@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<!-- PROPRIETE DE LA PAGE -->
+	<head>
+
+    	<meta charset="UTF-8">
+
+    	<!-- Permet de connecter CSS au HTML dans laquelle sera afficher notre code de style-->
+    	<link rel="stylesheet" type="text/css" href=" style.css">
+
+    	<title>Jhon Doe | Developpepent Web</title>
+
+	</head>
+	<!-- CORPS DE LA PAGE -->
+	<body>
+
+		<!-- COMMENTAIRE  -->
+
+		<h1>Titre</h1>	<!-- Un --><!-- Important pour référencement CEO/Google -->
+		<h2>Titre</h2>	<!-- Limité -->
+		<h3>Titre</h3>	<!-- Sans-Limite -->
+		<h4>Titre</h4>	<!-- Sans-Limite -->
+		<h5>Titre</h5>	<!-- Sans-Limite -->
+		<h6>Titre</h6>	<!-- Sans-Limite -->
+
+		<p>Paragraphe</p> <!-- Paragraphe avec saut de ligne -->
+		
+		<span>Paragraphe</span> <!-- Paragraphe sans saut de ligne -->
+		<br><br>  <!-- Saut de ligne -->
+
+		<!-- Permet donner de l'importance aux éléments pour le référencement CEO/Google -->
+		<strong>Important</strong>			<!-- Les éléments important --> 
+		<br><br>
+		<em>Peut important</em> 			<!-- Les éléments un peut important -->
+		<br><br>
+		<mark>Faible importance</mark>		<!-- Les éléments à faible importance -->
+		<br><br>
+
+		
+		<!-- !!!  L'italique, le Gras et le surlignage se font en CSS !!! -->
+		<!-- Si vous deviez le faire les commandes sont les suivantes --> 
+		<b>Gras</b> 						<!-- Les éléments seront en gras -->
+		<br><br>
+		<i>Italique</i> 					<!-- Les éléments seront en italique -->
+		<br><br>
+		<u>Souligner</u>					<!-- Les éléments seront souligner -->
+		<br><br>
+
+		<!-- Les Listes --> 
+		<!-- I : Liste Non Ordonées [ . ]--> 
+		<h3>Liste Non Ordonées</h3>
+		<ul>								<!-- Liste Non Ordonées--> 
+			<li>Liste I</li>				<!-- Item de liste -->
+			<li>Liste II</li>				<!-- Item de liste -->
+			<li>Liste III</li>				<!-- Item de liste -->
+		</ul>								<!-- Liste Non Ordonées--> 
+		<br><br>
+
+		<!-- II : Liste Ordonées [ 1) ]--> 
+		<h3>Liste Ordonées</h3>
+		<ol>
+ 			<li>Liste I</li>
+  			<li>Liste II</li>
+  			<li>Liste III</li>
+		</ol>
+		<br><br>
+
+		<!-- III : Liste de données --> 
+		<h3>Liste de données</h3> 
+		<dl>
+			<dt>Ensemble de données</dt>			<!-- Titre de la donnée -->
+			<dd>Ceux sont plusieurs données</dd>	<!-- Description de la Données -->
+			<dt>Liste</dt>
+			<dd>Ceux sont une liste d'objet ou chose</dd>
+		</dl>
+		<br><br>
+
+		<!-- BALISE STRUCTURE-->
+		<header></header> 					<!-- C'est l'entete de notre site--> 
+		<nav></nav>							<!-- C'est la barre de navigation de notre site-->
+		<section></section>  				<!-- Permet de définir une section le site peut en contenir plusieurs--> 
+		<aside></aside>						<!-- Optionel : Permet d'afficher du contenu supplémentaire--> 
+		<footer></footer>					<!-- C'est le bas de page--> 
+
+		<ul>
+			<!-- <a href="index.html">Menu</a> permet de créer un lien entre les pages web-->
+			<li><a href="index.html">Menu</a></li>		
+
+			<!-- lien qui redirige vers une ancre sur la même page -->
+			<li><a href="#footer">Footer</a></li>
+
+			<!-- Permet de redirigé vers un lien externe-->
+			<li><a href="https://www.google.com/"></a>Google</li>
+
+			<!-- Permet de redirigé vers un téléchargement-->
+			<li><a href="../software/AD.exe">Télécharger</a></li>
+
+			<!-- Permet de redirigé vers votre logiciel de messagerie-->
+			<li><a href="mailto:jhon.doe@mail.com">Send e-mail</a></li>
+		</ul>
+
+		<!-- id est un identifiant unique qui est donc #footer -->
+		<footer id="#footer"></footer>					
+
+		<!-- les attributs -->
+		<ul>
+			<!-- Il permet de donner une infobulle à votre page.-->
+			<li title="Accueil infobulle">Accueil infobulle</li>	
+
+			<!-- Permet d'ouvrir une nouvelle page navigateur -->
+			<li><a href="test.html" target="_blank">Accueil ouvre nouvelle pas navigateur</a></li> 
+		</ul>
+
+
+		<!-- Les images & formats images -->
+
+		<!-- Animation = .gif -->
+		<!-- Haute qualité = png-8 or png-24-->
+		<!-- Faible qualité = .jpeg -->
+		<!-- Effet de transparence = PNG-->
+
+		<!-- Insertion d'image -->
+		<img src="../picture/logo.png">
+		<br><br>
+
+		<!-- Référencement Google / Tag image-->
+		<img src="logo.png" alt="logo">
+		<br><br>
+
+		<!-- Infobulle qui décrit l'image-->
+		<img src="logo.png" alt="logo" title="Logo du site">
+		<br><br>
+
+		<p><img src="logo.png" alt="logo" title="Logo du site">Paragraphe</p>
+
+		<figure>
+			<img src="logo.png" alt="logo" title="Logo du site">
+			<figcaption>Logo du site</figcaption>
+		</figure>
+
+		<!-- Class et ID -->
+
+		<!-- Une class nous permet de modifier notre css une fois en appelant notre class .nom_class -->
+		<div class="multiple">Class = multiple</div> 
+
+		<!-- l'id est un identifiant unique, on peut avoir que un id avec le même nom_de_class sur notre html #nom_id-->
+		<div id="unique">id = unique</div>
+
+
+<!-- ---------------------------------------------------------------------------------------------------------------------------------- --> 		
+		<!-- ENTETE --> 
+		<header>
+
+		<!-- PRENOM & NOM--> 
+		<h1>Jhon Doe</h1>
+
+		<!-- STATUE --> 
+		<h2>Developpement Web</h2>
+
+		</header>
+
+		<!-- NAVIGATION --> 
+		<nav>
+
+			<!-- LISTE NON ORDONNEE --> 
+			<ul>
+				<li>Menu</li>				<!-- Menu du site --> 
+				<li>CV</li>					<!-- CV de Jhon Doe --> 
+				<li>Projet</li>				<!-- Projet de Jhon Doe --> 
+				<li>Contact</li>			<!-- Adresse de contact de Jhon Doe --> 
+			</ul>	
+
+		</nav>
+
+		<!-- SECTION I --> 
+		<section>
+
+			<!-- DESCRIPTION --> 
+			<p>Je désire devenir <em>développeur web</em></p>
+			<p>Je désire devenir <strong>développeur web</strong></p>
+			<p>Je désire devenir <mark>développeur web</mark></p>
+
+		</section>
+		
+
+		<!-- PIED DE PAGE --> 
+		<footer>
+
+			<!-- Copyright alt + 0 + 1 + 6 + 9 --> 
+			<span>2020 © Jhon Doe</span>
+		</footer>
+	</body>
+</html>
