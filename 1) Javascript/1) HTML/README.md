@@ -122,22 +122,31 @@ Votre body contiendra l'architecture de votre site.
 
 ```code
 -- Architecture --
-<header></header>                   // Architectural - Entete du site
-<nav></nav>                         // Architectural - Navigation
-<main></main>                       // Architectural - Principal
-<footer></footer>                   // Architectural - Bas de page
-<aside><aside>                      // Architectural - Contenue indirect
-<div></div>                         // Architectural - Bloc conatainer
+<header></header>                   // Architectural: Entete du site
+<nav></nav>                         // Architectural: Navigation
+<main></main>                       // Architectural: Principal
+<footer></footer>                   // Architectural: Bas de page
+<aside><aside>                      // Architectural: Contenue indirect
+<div></div>                         // Architectural: Bloc conatainer
+<dialog></dialog>                   // Architectural: Boite de dialogue
+<template></template>               // Architectural: Contenu HTML qui ne doit pas être affiché mais instancier en JS
+<slot></slot>                       // Architectural: Emplacement ou afficher du contenu dynamique
+
+<div class="nom_class"></div>       // Class: Permet d'appeler des .class
+<div class="nom_class"></div>
+<div class="nom_class"></div>
+
+<div class="nom_id"></div>          // ID : Permet d'appeler un #id
 ```
 ```
 -- Textuelle -- 
 <!-- Commentaire -->                // Textuel - Un commentaire.
 <br>                                // Textuel - Saut de ligne.
 <b>gras</b>                         // Textuel - Gras
-<strong>gras important</strong>     // Textuel - Gras SEO
-<i>italique</i>                     // Textuel - Italic
-<em>italic  important</em>          // Textuel - Italic SEO
-<mark>Surlignement</mark>           // Textuel - Surligne le texte
+<strong>gras important</strong>     // Textuel - Gras SEO TRES IMPORTANT
+<i>italique</i>                     // Textuel - Italic    
+<em>italic  important</em>          // Textuel - Italic SEO IMPORTANT
+<mark>Surlignement</mark>           // Textuel - Surligne le texte SEO PEU IMPORTANT
 <s>Barrer</s>                       // Textuel - Barrer le texte
 <u>Soulignement</u>                 // Textuel - Soulignement du texte
 <del>mot supprimer</del>            // Textuel - indique que le mot est supprimer
@@ -152,17 +161,22 @@ Votre body contiendra l'architecture de votre site.
 <time datetime="20:00">20:00</time> // Textuel - Definis une heure
 <math>2 + 2</math>                  // Textuel - Langage mathématique (Tex)
 
-
 <h1>Titre de niveau 1</h1>          // Textuel - Titre de niveau 1 SEO
 <h2>Titre de niveau 2</h2>          // Textuel - Titre de niveau 2 SEO
 <h3>Titre de niveau 3</h3>          // Textuel - Titre de niveau 3 SEO
 <h4>Titre de niveau 4</h4>          // Textuel - Titre de niveau 4
 <h5>Titre de niveau 5</h5>          // Textuel - Titre de niveau 5
 <h6>Titre de niveau 6</h6>          // Textuel - Titre de niveau 6
+<hgroup>                            // Textuel - Contient plusieurs titres
+    <h1>Titre</h1>
+    <h2>Sous-titre</h2>
+</hgroup>
+
 
 <p>Un paragraphe</p>                // Textuel - Paragraphe sur une ligne.
 <pre>Un paragraphe</pre>            // Textuel - Paragraphe prenant en compte les retour à la ligne.
 <abbr title="abreaviation">abbr</abbr> // Textuel - Donne le titre complet de l'abreviation
+    
 
 <ol>                                // Textuel - Liste ordonnée
   <li>Liste ordonnée</li>
@@ -185,6 +199,12 @@ Votre body contiendra l'architecture de votre site.
 <a href="" download="image.png">A</a>// Media - lien vers un telechargement
 
 <data value="100">Objet</data>       // Media - Definit une valeur à un mot / objet
+
+<!-- Permet à une ressource externe d'être interprétée comme une image, -->
+<object type="application/pdf" data="/media/examples/fichier.pdf">
+	<!-- Permet d'ajouter des parametre à un objet -->
+	<param name="" value="">
+</object>
 
 <audio src="./music.mp3"></audio>    // Media - Lecteur audio
 
@@ -280,7 +300,12 @@ Votre body contiendra l'architecture de votre site.
 // En cas de non prise en charge de module
 <script nomodule src="fallback.js"></script>
 
+// Ajout de contenu externe
+<iframe width="560" height="315" src="https://harmonyfidelis.com/"></iframe>
+<iframe width="560" height="315" src="./otherHTML"></iframe>
+<iframe width="560" height="315" src="https://sketchfab.com/models/465fd961faae40518101c96c63db6b46/embed"></iframe>
 
+<embed type="video/webm" src="/media/cc0-videos/flower.mp4" width="250" height="200">
 ```
 
 ```
@@ -334,11 +359,15 @@ Votre body contiendra l'architecture de votre site.
 
 <input list="s-flavors" />
 <datalist id="flavors">           // Formulaire - Permet de presenter des valeur possible
-    <option value="Chocolate">
-    <option value="Coconut">
-    <option value="Mint">
-    <option value="Strawberry">
-    <option value="Vanilla">
+    <select>
+        <optgroup label="Best">
+            <option value="Chocolate">
+            <option value="Coconut">
+        </optgroup >
+        <option value="Mint">
+        <option value="Strawberry">
+        <option value="Vanilla">
+    </select>
 </datalist>
 
 ```
@@ -385,7 +414,15 @@ Votre body contiendra l'architecture de votre site.
 </figure>
 ```
 ```
+-- barre de progression --
+<label for="fuel">Fuel level:</label>
+<meter id="fuel" min="0" max="100" low="33" high="66" optimum="80" value="50"></meter> // Barre statique
 
+
+<label for="file">File progress:</label>
+<progress id="file" max="100" value="70"> 70% </progress>  // Barre dynamique
+```
+```
 -- Carte clickable -- 
 
 <map name="exemple-map-1">
@@ -394,4 +431,13 @@ Votre body contiendra l'architecture de votre site.
 </map>
 <img usemap="#exemple-map-1" src="https://via.placeholder.com/350x150">
 
+```
+```
+<!-- Masquer un contenu -->
+<details>
+    <!-- Text qui permettre d'afficher le contenu -->
+    <summary>Afficher le contenu</summary>
+	<img src="https://transpire.me/wp-content/uploads/2019/05/transhumanism_45457678.jpg">
+	<h3>Humanity+</h3>
+</details>
 ```
