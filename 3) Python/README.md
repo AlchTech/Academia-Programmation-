@@ -4,16 +4,15 @@
 
 ---
 
- ## Table des matières
+## Table des matières
 
- 0. [Introduction](#introduction)
- 1. [Environnement](#environnement)
+0.  [Introduction](#introduction)
+1.  [Environnement](#environnement)
     1. [Gestionnaire de paquet PIP](#pip)
-    2. 
- 2. [Python](#Python)
+    2.
+2.  [Python](#Python)
     1. [Python](#Python)
        1. [Python](#Python)
-
 
 ---
 
@@ -23,30 +22,36 @@
 
 ---
 
-Python est un langage de programmation dit de haut niveau, il permet la transmission  entre le langage humaine en 
+Python est un langage de programmation dit de haut niveau, il permet la transmission entre le langage humaine en
 langage machine, qui lui est binaire.
 
-| Humain  |     Ordinateur      |
-|:-------:|:-------------------:|
-|  Hello  | 0100100001100101001 |
+| Humain |     Ordinateur      |
+| :----: | :-----------------: |
+| Hello  | 0100100001100101001 |
+
 ---
-Python est un langage orienté objet, ce qui signifie qu’il peut modéliser une idée  ou une entité du monde réel .
+
+Python est un langage orienté objet, ce qui signifie qu’il peut modéliser une idée ou une entité du monde réel .
 
 ```
  car = {
     "marque": "Tesla",
     "color": "black",
-    "kilometre": "10 000km" 
- }    
+    "kilometre": "10 000km"
+ }
 ```
+
 ---
+
 Il est typé dynamiquement, car il vérifie les type de donnée pour que le résultat correspond bien à nos attentes.
 
 |  Text   | Integral | Decimal | Complex |   Boolean    |
-|:-------:|:--------:|:-------:|:-------:|:------------:|
+| :-----: | :------: | :-----: | :-----: | :----------: |
 |   str   |   int    |  float  | complex |     bool     |
 | "hello" |    10    |  10.5   |   10j   | true / false |
+
 ---
+
 Il est interprété ligne par ligne, cela facilite le débogage.
 
 ```
@@ -54,21 +59,21 @@ Il est interprété ligne par ligne, cela facilite le débogage.
 2. print(var)                   // True
 3. print(variable)              // Error
 ```
----
-
-Il permet de faire : 
- - Du développement d’interface graphique "GUI" avec Tkinter.
- - Du développement de site web avec Django.
- - Du traitement des données.
- - Du marchin learning et de l'apprentissage profond.
 
 ---
 
-Il est portable  ce qui veut dire qu’il fonctionne sur Mac, Microsoft, Linux...
+Il permet de faire :
 
+- Du développement d’interface graphique "GUI" avec Tkinter.
+- Du développement de site web avec Django.
+- Du traitement des données.
+- Du marchin learning et de l'apprentissage profond.
+
+---
+
+Il est portable ce qui veut dire qu’il fonctionne sur Mac, Microsoft, Linux...
 
 Télécharger et Installer le langage PYTHON avec [ANACONDA](https://www.anaconda.com/products/individual)
-
 
 ### 1. Environnement
 
@@ -76,7 +81,7 @@ Télécharger et Installer le langage PYTHON avec [ANACONDA](https://www.anacond
 
 #### <ins>1.1 PYCHARM : IDE Python</ins>
 
-[PYCHARM](https://www.jetbrains.com/fr-fr/pycharm/) est environnement de développement permettant d'avoir un éditeur 
+[PYCHARM](https://www.jetbrains.com/fr-fr/pycharm/) est environnement de développement permettant d'avoir un éditeur
 de code, un terminal et des fonctionnalités dans un seul programme.
 
 ```texte
@@ -86,7 +91,9 @@ SHIFT*2                                             // Recherche n'importe quel 
 Ctrl+Shift+A                                        // Recherchez commande IDE et exécutez-la
 Ctrl+/                                              // Permet de mettre un commentaire
 ```
+
 #### <ins>1.2 TERMINAL : Créer et naviguer à partir du projet </ins>
+
 Pour pouvoir créer, supprimer ou encore naviguer dans un projet nous nous servons du terminal
 Raccourcie IDE :
 
@@ -107,10 +114,12 @@ cd C:\path/directory/                               // Navigue dans le chemin in
 cd ./path/directory/                                // Navigue dans le chemin a partir du dossier racine
 cd ../path/directory/                               // Recule d'un dossier et navigue dans le chemin indiquers
 ```
+
 #### <ins>1.2 GIT : Versioning d'un projet</ins>
 
-Nous pouvons à présent créer un projet et lui attribué une version et ainsi sauvegarde chaque avancé du projet avec 
+Nous pouvons à présent créer un projet et lui attribué une version et ainsi sauvegarde chaque avancé du projet avec
 gestionnaire de version [GIT](https://git-scm.com/downloads)
+
 ```
 Create PROJECT :
 
@@ -139,6 +148,7 @@ git merge                                           // !! Ajoute modifs de la br
 ```
 
 #### <ins>1.3 PIP : Installateur de paquets de Python</ins>
+
 Certaines functions on était créé par des développeurs et permet de faire certaine action connue sous le nom de paquet.
 
 Bibliothèque sur [PYPI](https://pypi.org/)
@@ -179,7 +189,7 @@ py generate_graph.py
 
 #### <ins>1.4 VENV : Les environnements virtuels</ins>
 
-Pour éviter les problems de compatibilité entre les logiciels, nous utilisons les environnements virtuels. 
+Pour éviter les problems de compatibilité entre les logiciels, nous utilisons les environnements virtuels.
 Environment virtuel va simuler un environment indépendant qui nous permettra l'installation des dépendances
 nécessaires au projet en ne prennent pas en compte les dépendances installez sur votre ordinateur local.
 
@@ -196,9 +206,8 @@ env\Scripts\activate.bat                      // Command cmd pour activez enviro
 deactivate                                    // Desactive l'environnement virtuel
 ```
 
-
 Configurer interpreter PYTHON de votre IDE PYCHARM, cela vous permettra d'utiliser votre terminal directement dans votre
-environnement. Attention verifier que l'interpreter correspond bien à l'env du projet 
+environnement. Attention verifier que l'interpreter correspond bien à l'env du projet
 
 ```
 PYCHARM INTERPRETER :
@@ -210,6 +219,7 @@ EXEMPLE :
 
 (env) ~/projects/name_app$ pip list
 ```
+
 #### <ins>1.5 REQUIREMENT.TXT : Liste et installation des packages d'un projet</ins>
 
 Pour informer les autres développeurs des packages nécessaires au fonctionnement du code, nous utilisons requirement.txt
@@ -237,9 +247,7 @@ pip install -r requirements.txt                // Permet d'installer packages l'
 
 ```
 
-
-
-###  <ins>2. LANGAGE DE PROGRAMMATION PYTHON</ins>
+### <ins>2. LANGAGE DE PROGRAMMATION PYTHON</ins>
 
 ---
 
@@ -248,34 +256,38 @@ pip install -r requirements.txt                // Permet d'installer packages l'
 Pour utiliser les paquets, il faut les importer dans votre fichier.py.
 
 <a href="#import"></a>
+
 ```code
 IMPORT / EXPORT:
 
 import name_package                            // Import un package
-print(name_package.nameFunction())
+print(name_package.nameFunction())             // Import une function spécifique
 print(help(name_package))                      // Permet de voir les différentes functions du package
----
+
 import name_package.nameFunction               // Import une function spécifique
 print(name_package.nameFunction())
----
+
 from name_package import nameFunc1, nameFunc1
----
+
 import name_package as name_alias              // Import un package sous un alias
 print(name_alias.nameFunction())
----
+
 import ./path/name_file                        // Import un script python
 print(name_file.nameVariable)                  // Appele une variable spécifique
 print(name_file.nameFunction())                // Appele une function spécifique
 ```
 
 #### <ins>2.3 STOCKAGE DES DONNEES : Stocker vos données</ins>
+
 ```code
-COMMENTAIRE : 
-# Ceci est un commentaire               
+COMMENTAIRE :
+# Ceci est un commentaire
 ```
+
 ---
-```code             
-VARIABLE :   
+
+```code
+VARIABLE :
 
 name_variable = "valeur"                            // Variable contenant une donnée modifiable
 print(name_variable)                                // response : "valeur"
@@ -284,9 +296,11 @@ print()
 NAME_CONSTANTE = "valeur"                           // Variable contenant une donnée non-modifiable
 print(NAME_CONSTANTE)                               // response : "valeur"
 ```
+
 ---
-```code 
-LIST :   
+
+```code
+LIST :
 
 name_variable = ["valeur1", "valeur2", "valeur3"]   // Liste contenant un ensemble de données modifiable
 print(name_variable)                                // response : ["valeur1", "valeur2", "valeur3"]
@@ -295,11 +309,11 @@ print(name_variable[2])                             // response : "valeur3"
 
 _ajoute_
 name_variable = []                                  // Creer une liste vide
-name_variable.append("valeur1")                     // Ajoute une valeur à la list  [valeur1] 
-name_variable.append("valeur2")                     // Ajoute une valeur à la list  [valeur1, valeur2] 
-name_variable.insert(0, ”Valeur0”)                  // Ajoute une valeur à l’index[] choisit 	      
-nomVariable = list(range(5)                         // Creer une liste numérique [0, 1, 2, 3, 4] 
-nomVariable = list(range(95, 100)                   // Creer une liste numérique compris entre [95, 96 .. 99] 
+name_variable.append("valeur1")                     // Ajoute une valeur à la list  [valeur1]
+name_variable.append("valeur2")                     // Ajoute une valeur à la list  [valeur1, valeur2]
+name_variable.insert(0, ”Valeur0”)                  // Ajoute une valeur à l’index[] choisit
+nomVariable = list(range(5)                         // Creer une liste numérique [0, 1, 2, 3, 4]
+nomVariable = list(range(95, 100)                   // Creer une liste numérique compris entre [95, 96 .. 99]
 nomVariable = list(range(1, 10, 2)                  // Creer une liste numérique intervalle [1, 3, 5, 7, 9]
 
 _modifie_
@@ -312,14 +326,14 @@ name_variable.pop()                                 // Supprime la dernière val
 name_variable.pop(1)                                // Supprime la valeur indexer[] et la retourne
 del name_variable[0]	                            // Supprime la valeur à l’index[] choisit
 
-_copier_ 
-new_variable = name_variable[:]                     // Fait une copie de la liste				    
+_copier_
+new_variable = name_variable[:]                     // Fait une copie de la liste
 
 _classer_
-print(sorted(nomVariable))                          // Trie de manière alphanumérique			    
-nomVariable.sort()                                  // Trie de manière alphanumérique			    
-print(sorted(nomVariable, reverse = True))          // Trie de manière alphanumérique inverse  
-nomVariable.reverse()                               // Trie de manière alphanumérique inverse   
+print(sorted(nomVariable))                          // Trie de manière alphanumérique
+nomVariable.sort()                                  // Trie de manière alphanumérique
+print(sorted(nomVariable, reverse = True))          // Trie de manière alphanumérique inverse
+nomVariable.reverse()                               // Trie de manière alphanumérique inverse
 
 
 _index_
@@ -331,13 +345,17 @@ print(name_variable[:1])                            // end:           // respons
 print(name_variable[:1])                            // end:           // response : ["valeur1", "valeur2"]
 print(name_variable[::2])                           // step:          // response :["valeur1", "valeur3"]
 ```
+
 ---
+
 ```
 TURPLE :
 
 name_variable = ("valeur1", "valeur2", "valeur3")   // Liste contenant un ensemble de données non-modifiable
 ```
+
 ---
+
 ```code
 DICTIONNAIRE :
 
@@ -356,17 +374,19 @@ name_variable['key'] = nameFunction()               // Ajoute une function
 name_variable['key'] = ["valeurA", "ValeurB"]       // Ajoute une liste
 name_variable.items()                               // retourne toutes les clés:valeur
 name_variable.keys()                                // retourne toutes les clés
-name_variable.values()                              // retourne toutes les valeurs   
-name_variable.get(“key1“)                           // retourne la valeur associé à la clé   
-del meal['key1']                                    // Supprimer la key:valeur correspondant à la key                               
+name_variable.values()                              // retourne toutes les valeurs
+name_variable.get(“key1“)                           // retourne la valeur associé à la clé
+del meal['key1']                                    // Supprimer la key:valeur correspondant à la key
 ```
----
-```code
-FUNCTION :        
 
-_functionNormale_                                  
+---
+
+```code
+FUNCTION :
+
+_functionNormale_
 def nameFunction(arg1, arg2):                       // Definit une function avec deux arguments
-    arg1 = this.arg1                               // Attribue l'arguement1 a une variable             
+    arg1 = this.arg1                               // Attribue l'arguement1 a une variable
     arg2 = this.arg2                               // Attribue l'arguement2 a une variable
     arg3 = arg1 + arg2                             // Fait une concatenation
     return(arg3)                                   // Retourne la valeur de arg3
@@ -374,18 +394,18 @@ def nameFunction(arg1, arg2):                       // Definit une function avec
 nameFunction("Hello", "World")                     // response: HelloWorld
 nameFunction("10", "5")                            // response: 15
 
-_functionListe_  
+_functionListe_
 name_variable = [10, 50, 80]                       // Une liste de valeur
 def nameFunction(*name_variable)                   // L'étoile * parcoure la liste
    return name_variable[0] + name_variable[1]      // response: 60
 
-_functionDictionnary_  
+_functionDictionnary_
 def nameFunction(**args) :
     return args
-    
-nameFunction(a=23, b=42)                           
 
-_functionArgFalcutatif_  
+nameFunction(a=23, b=42)
+
+_functionArgFalcutatif_
 def nameFunction(arg1, arg2, *arg3):               // L'étoile * rend l'arg3 facultative
     arg1 = this.arg1
     arg2 = this.arg2
@@ -393,7 +413,9 @@ def nameFunction(arg1, arg2, *arg3):               // L'étoile * rend l'arg3 fa
 
 nameFunction("Hello", "World")
 ```
+
 ---
+
 Les classes est une usine à fabriquer des types d’objet représentant un objet du monde réel auquel nous allons donné des attributs(caractéristique) avec une valeur.
 
 Les attributs correspondent aux caractéristiques de l’objet (name = "John" / age = 36)
@@ -401,12 +423,13 @@ Les attributs correspondent aux caractéristiques de l’objet (name = "John" / 
 Les instances correspondent à un objet qu’on aura créé (personnage1 / personnage10 / voiture1)
 
 Les méthodes correspondent à une fonction de class (def _init _(self, name, age))
+
 ```
-CLASS : 
+CLASS :
 
 class  Name_class:
   attribut_creer = 0
- 
+
   def __init__(self, name, age):
     self.name = name
     self.age = age
@@ -417,16 +440,18 @@ print(personnage1.name)
 print(personnage1.age)
 print(Name_class.attribut_creer)
 ```
+
 #### <ins>2.4 TYPE DE DONNEES : Les différents types</ins>
+
 ```code
 TYPE DE DONNEES :
-  
+
 let name_variable = str("Hello")                    // Textuelle : str
 let name_variable = int(10)                         // Numerique : int
 let name_variable = long()                          // Numerique : int (infinie)
 let name_variable = float(10.5)                     // Numerique : float
 let name_variable = complex(5, -10)                 // Numerique : complex j(py) = i(math) (5-10j)
-let name_variable = bool(true)                      // Numerique : boolean (true or false)   
+let name_variable = bool(true)                      // Numerique : boolean (true or false)
 
 STR :
 
@@ -445,7 +470,7 @@ nomVariable.title() 	                            //  Majuscule début de chaque 
 nomVariable.upper()                                 //  Majuscule partout
 nomVariable.lower()                                 //  Minuscule partout
 nomVariable.strip()                                 //  Supprime caractères qui sont entre parenthèse de la variable
-nomVariable.rstrip()                                //  Partant de la droite supprime caractères entre parenthèse 
+nomVariable.rstrip()                                //  Partant de la droite supprime caractères entre parenthèse
 nomVariable.lstrip()	                            //  Partant de la gauche supprime caractères entre parenthèse
 
 INT :
@@ -476,13 +501,13 @@ nomVariable = abs(-10.5)                            // Retourne valeur Réel san
 
 #### <ins>2.5 OPERATORS MATHEMATICS : Les opérateurs mathématiques</ins>
 
-| Symbole |      Opération       |       Type        |       Exemple       | 
-|:-------:|:--------------------:|:-----------------:|:-------------------:|
-|   ()    | Ordre des opérations | int / float / str | (3+2,5) *  5 = 27,5 | 
-|   **    |      Puissance       | int / float / str |    12 ** 2 = 144    |
+| Symbole |      Opération       |       Type        |       Exemple       |
+| :-----: | :------------------: | :---------------: | :-----------------: |
+|   ()    | Ordre des opérations | int / float / str | (3+2,5) \* 5 = 27,5 |
+|  \*\*   |      Puissance       | int / float / str |   12 \*\* 2 = 144   |
 |    +    |       Positif        |    int / float    |         4,5         |
 |    -    |       Négatif        |    int / float    |        -4,5         |
-|    *    | Multiplier(produit)  | int / float / str |    1,5 * 5 = 7,5    |
+|   \*    | Multiplier(produit)  | int / float / str |   1,5 \* 5 = 7,5    |
 |    /    |  Diviser(quotient)   |    int / float    |     6 / 4 = 1,5     |
 |   //    |  Diviser(quotient)   |    int / float    |      6 / 4 = 1      |
 |    %    |    Diviser(reste)    |        int        |      6 % 4 = 2      |
@@ -493,50 +518,50 @@ nomVariable = abs(-10.5)                            // Retourne valeur Réel san
 
 Les opérateurs de comparaison retourne true ou false.
 
-| Symbole |                Opération                |       Type        |  Exemple   | 
-|:-------:|:---------------------------------------:|:-----------------:|:----------:|
-|    <    |          Strictement inférieur          | int / float / str |   5 < 10   | 
-|    >    |          Strictement supérieur          | int / float / str |   10 > 5   | 
-|   <=    |            inférieur ou égal            | int / float / str |  10 <= 5   | 
-| 	&gt;=  |      Strictement supérieur ou égal      | int / float / str |  10 >= 5   | 
-|   ==    |                  Egal                   | int / float / str |   2 == 2   | 
-|   !=    |                Différent                | int / float / str |   2 != 5   | 
-|   is    |   Renvoie true si les deux sont true    | int / float / str |   x is y   | 
-| is not  | Renvoie true si les deux sont différent | int / float / str | x is not y | 
+| Symbole |                Opération                |       Type        |  Exemple   |
+| :-----: | :-------------------------------------: | :---------------: | :--------: |
+|    <    |          Strictement inférieur          | int / float / str |   5 < 10   |
+|    >    |          Strictement supérieur          | int / float / str |   10 > 5   |
+|   <=    |            inférieur ou égal            | int / float / str |  10 <= 5   |
+|  &gt;=  |      Strictement supérieur ou égal      | int / float / str |  10 >= 5   |
+|   ==    |                  Egal                   | int / float / str |   2 == 2   |
+|   !=    |                Différent                | int / float / str |   2 != 5   |
+|   is    |   Renvoie true si les deux sont true    | int / float / str |   x is y   |
+| is not  | Renvoie true si les deux sont différent | int / float / str | x is not y |
 
 #### <ins>2.7 OPERATORS AFFECTATION : Les opérateurs d'affectation</ins>
 
 Les opérateurs d'affectation attribue des valeurs à un nom (variable)
 
-| Symbole |            Opération            |       Type        |                      Exemple                      | 
-|:-------:|:-------------------------------:|:-----------------:|:-------------------------------------------------:|
-|    =    |  Affectation simple (variable)  | int / float / str |                   var = valeur                    | 
-|   ===   | Affectation multiple (variable) | int / float / str |               var1 = var2 = valeur                | 
-|   ,=,   | Affectation parallel (variable) | int / float / str | var1, var2 = 10, 15<br> var1 // 10<br> var2 // 15 | 
+| Symbole |            Opération            |       Type        |                      Exemple                      |
+| :-----: | :-----------------------------: | :---------------: | :-----------------------------------------------: |
+|    =    |  Affectation simple (variable)  | int / float / str |                   var = valeur                    |
+|   ===   | Affectation multiple (variable) | int / float / str |               var1 = var2 = valeur                |
+|   ,=,   | Affectation parallel (variable) | int / float / str | var1, var2 = 10, 15<br> var1 // 10<br> var2 // 15 |
 
 #### <ins>2.7 OPERATORS LOGIC : Les opérateurs logique</ins>
 
 Les opérateurs de comparaison retourne true ou false.
 
-| Symbole |                 Opération                  |       Type        |         Exemple         | 
-|:-------:|:------------------------------------------:|:-----------------:|:-----------------------:|
-|   or    | Si une des deux valeur est true alors true | int / float / str |   (x > 3  or  x < 4)    | 
-|   and   |   Si les deux valeur est true alors true   | int / float / str |   (x > 3  and x < 10)   | 
-|   not   |  Renvoie False si les résultat sont true   | int / float / str | (not(x > 3  and x < 10) | 
+| Symbole |                 Opération                  |       Type        |        Exemple         |
+| :-----: | :----------------------------------------: | :---------------: | :--------------------: |
+|   or    | Si une des deux valeur est true alors true | int / float / str |    (x > 3 or x < 4)    |
+|   and   |   Si les deux valeur est true alors true   | int / float / str |   (x > 3 and x < 10)   |
+|   not   |  Renvoie False si les résultat sont true   | int / float / str | (not(x > 3 and x < 10) |
 
 #### <ins>2.8 OPERATORS APPARTENANCE : Les opérateurs d'appartenance</ins>
 
 Les opérateurs de comparaison retourne true ou false.
 
-| Symbole |                        Opération                        |       Type        |     |                  Exemple                  | 
-|:-------:|:-------------------------------------------------------:|:-----------------:|:----|:-----------------------------------------:|
-|   in    | Renvoie True si la variables contient l’une des valeurs | int / float / str |     |   X =[“hi”, “bye”]<br> print(“hi” in X)   | 
-|  notin  |      Renvoie True si la valeur n’est pas présente       | int / float / str |     | X =[“hi”, “bye”]<br> print(“slt” notin X) | 
+| Symbole |                        Opération                        |       Type        |     |                  Exemple                  |
+| :-----: | :-----------------------------------------------------: | :---------------: | :-- | :---------------------------------------: |
+|   in    | Renvoie True si la variables contient l’une des valeurs | int / float / str |     |   X =[“hi”, “bye”]<br> print(“hi” in X)   |
+|  notin  |      Renvoie True si la valeur n’est pas présente       | int / float / str |     | X =[“hi”, “bye”]<br> print(“slt” notin X) |
 
 #### <ins>2.9 FLUX DE CONTROL : Les flux de contrôle</ins>
 
 ```code
-IF / ELIF / ELSE : 
+IF / ELIF / ELSE :
 
 if(condition):
     print("si condition true execute ce code")
@@ -561,16 +586,18 @@ for item in name_variable:
     print(item)                                     // response: "value1", "value2", "value3"
 _numerique_
 for  item in range(0, 10):
-    print(item)                                     // response: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 
+    print(item)                                     // response: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9
 ```
+
 ```
-WHILE : 
+WHILE :
 
 i = 0
-while (i < 4):                                       // Repete tant que la condition n'est pas atteinte 
+while (i < 4):                                       // Repete tant que la condition n'est pas atteinte
     print(i)                                         // response: 0, 1, 2, 3
     i = i + 1                                        // ajoute un à i a chaque passage de boucle
 ```
+
 ### 3. Module / Package
 
 Voir le dossier <ins>3) FRAMEWORK
