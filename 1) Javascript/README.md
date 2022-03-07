@@ -95,7 +95,30 @@ git merge                                           // !! Ajoute modifs de la br
 
 ---
 
-#### <ins>2.1 IMPORT / EXPORT : Importez un paquet JavaScript</ins>
+#### <ins>2.0 IMPORT / EXPORT : Importez un paquet JavaScript</ins>
+```
+_IMPORTATION_
+import name_function from "./path/name.extension";
+import name_function from name_paquet;
+
+_EXPORTATION_
+module.export = name_variable;
+module.export = name_function;
+
+export let nameVariable = nameVariable1, nameVariable2;
+export { name1, name2 };
+export { variable1 as name1, variable2 as name2 };
+export function nameFunction(){...}
+export class nameClass {...}
+```
+#### <ins>2.0 TYPE DE DONNEES :</ins>
+```
+let name = "text";                       // String
+let name = 10;                           // Number
+let name = true;                         // Bool
+let name = [Value, Value];               // Tableau
+let name = [name:value, name:value];     // Dictionnaire
+```
 
 #### <ins>2.2 STOCKAGE DES DONNEES : Stocker vos données</ins>
 
@@ -103,9 +126,6 @@ git merge                                           // !! Ajoute modifs de la br
 _COMMENTAIRE_
 // Ceci est un commentaire
 ```
-
----
-
 ```code
 _VARIABLE_
 let name_variable = "valeur"                        // Variable contenant une donnée modifiable
@@ -116,8 +136,119 @@ _CONSTANTE_
 const NAME_CONSTANTE = "valeur"                     // Variable contenant une donnée non-modifiable
 print(NAME_CONSTANTE)                               // response : "valeur"
 ```
+```
+_FUNCTION_
 
----
+let name_function = (arg1) => {return this.arg1}    // Function fléchée
+
+function name_function (arg1){return this.arg1}     // Function normale
+
+async function(arg1){                               // Function async
+    try{ let name = await arg1
+    } catch(error){
+        console.error(error);
+    } finally {
+        console.log("si exception execute code")
+    }
+}
+```
+```
+_CLASS_
+
+class NameClass {
+    let count = 0
+
+    constructor(attr1, attr2){
+        this.name = "NameObject"
+        this.attr1 = attr1;
+        this.attr2 = attr2;
+    }
+
+}
+
+const object1 = new nameClass("value", "value")
+const object1 = new nameClass("value", "value")
+const objectName = console.log(NameClass.name)
+```
+#### <ins>2.3 EXPRESSION</ins>
+```
+_EXPRESSION_
+(valeur1 == valeur2)                  // Egalité
+(valeur1 === valeur2)                 // Egalité stricte
+(valeur1 !== valeur2)                 // Différent
+(valeur1 !=== valeur2)                // Différent stricte
+(valeur1 > valeur2)                   // Superieur
+(valeur1 >= valeur2)                  // Superieur ou egal
+(valeur1 <= valeur2)                  // Inferieur
+(valeur1 <= valeur2)                  // Inferieur ou egal
+```
+#### <ins>2.3 CONDITION</ins>
+```
+_CONDITION_
+if(condition){                      // Si la condition est true execute le code, mais si faux continue
+    ...
+} elseif(condition) {               // Sinon la condition est true execute le code, mais si faux continue
+    ...
+} else{                             // Sinon si toutes conditions false execute ce code
+    ...
+}
+
+switch(value){                      // Reçois une valeur et si la valeur
+    case x:                         // Exemple : si la valeur est x execute ce code
+        ...
+        break;                      // Puis arrete le code
+    case y:                         // Exemple : si la valeur est y execute ce code
+        ...
+        continue;                   // Continue le code
+    default:                        // Exemple : Si aucun valeur true alors execute ce code
+        ...
+        break;
+}
+```
+#### <ins>2.4 BOUCLE</ins>
+```
+_FOR_
+for(let i = 0; i < 10; i++){
+    console.log(listName[i])
+}
+
+for(let i in listName ){
+    console.log(listName[i])
+}
+
+
+for (let [key, value] of Object.entries(listName)) {
+  console.log(`${key}: ${value}`);
+}
+
+_WHILE_
+let i = 0
+
+while(i < 5){                                // Repete tant que la condition et true
+    i++;                                     // Mettre un incrémentation qui permet d'arreter la boucle
+}
+
+do{                                          // Repete jusqu'a ce que la condition soit false
+    i++;                                     // Mettre un incrémentation qui permet d'arreter la boucle
+}while(i < 5)
+```
+
+
+#### <ins>2.6 BOITE DE DIALOGUE</ins>
+
+```
+_BOITEDIALOGUE_
+alert("message à afficher")                         // Permet d'afficher boite de dialogue
+
+if(confirm("Souhaitez-vous confirmer ?")){          // Permet d'afficher boite de dialogue avec confirmation
+    alert("Vous venez de confirmer !")
+} else{
+    alert("Vous venez de annulez")
+}
+
+prompt("Entrez votre age")                          // Permet d'afficher une boite de dialogue de type input
+```
+
 
 ### <ins>3. DOM Document Objet Model
 
