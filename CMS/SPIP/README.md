@@ -169,7 +169,7 @@ squelettes                  // ACCES SQUELETTE SITE (votre site)
  |- lang                    // ACCES TRADUCTION (Generation des différents lang)
      |- paquet_fr.php
      |- paquet_en.php
- |- modeles                 // ACCES MODELES (Generation des différents lang)
+ |- modeles                 // ACCES MODELES
      |- lesauteurs.html
  |- police                  // ACCES POLICE
      |- roboto.ttf
@@ -264,19 +264,50 @@ EXEMPLE BOUCLE :
 ```CODE
 ARTICLE :
 
+_critèresSélection_
+
 {branche}                           // SELECTIONNE ARTICLES DE RUBRIQUE ET DE SES SOUS-RUBRIQUE
 {branche 10}                        // SELECTIONNE ARTICLES DE RUBRIQUE ET DE SES SOUS-RUBRIQUE
 
-{id_secteur}                        // SELECTIONNE ARTICLES DE RUBRIQUE
+{id_secteur=valeur}                 // SELECTIONNE ARTICLES DE RUBRIQUE VALEUR
+{id_secteur}                        // SELECTIONNE ARTICLES DE RUBRIQUE EN COURS
+{id_rubrique=valeur}                // SELECTIONNE ARTICLES DE RUBRIQUE VALEUR
+{id_rubrique}                       // SELECTIONNE ARTICLES DE RUBRIQUE EN COURS
+{id_article=valeur}                 // SELECTIONNE UN ARTICLE PRECIS VALEUR
+{id_article}                        // SELECTIONNE UN ARTICLE PRECIS EN COURS
+{id_auteur=valeur}                  // SELECTIONNE ARTICLES DE L'AUTEUR VALEUR
+{id_auteur}                         // SELECTIONNE ARTICLES DE L'AUTEUR EN COURS
+{id_groupe=valeur}                  // SELECTIONNE ARTICLES LIEE A UN GROUPE DE MOTS-CLEFS VALEUR
+{id_groupe}                         // SELECTIONNE ARTICLES LIEE A UN GROUPE DE MOTS-CLEFS EN COURS
+{id_mot=valeur}                     // SELECTIONNE ARTICLES LIEE A UN MOT-CLEF VALEUR
+{id_mot}                            // SELECTIONNE ARTICLES LIEE A UN MOT-CLEF EN COURS
 
-{id_article==10}                    // SELECTIONNE UN ARTICLE PRECIS
-{id_auteur}                         // SELECTIONNE ARTICLES DE L'AUTEUR
+{titre_mot=valeur}                  // SELECTIONNE ARTICLES LIEE A UN MOT-CLEF VALEUR
+{type_mot=valeur}                   // SELECTIONNE ARTICLES LIEE A UN MOT-CLEF VALEUR
+
+{lang=valeur}                       // SELECTIONNE ARTICLES DE LA LANG VALEUR
+{origine_traduction}                // SELECTIONNE ARTICLES QUI SERT DE BASE AUX VERSIONS TRADUITE
+{traduction}                        // SELECTIONNE LES TRADUCTIONS DE L'ARTICLES EN COURS
+
+{recherche}                         // SELECTIONNE ARTICLES AU MOTS INDIQUER DANS MOTEUR RECHERCHE
+
+{si ...}                            // SELECTIONNE ARTICLES SI LA CONDITIONS EST RESPESCTER
 
 {date}                              // SELECTIONNE ARTICLES PAR DATE
 {date==YYYY-MM-DD hh-mm-ss}         // SELECTIONNE ARTICLES AYANT DATE LA DATE INDIQUER
 {date!=YYYY-MM-DD hh-mm-ss}         // SELECTIONNE ARTICLES ETANT DIFFERENT DE LA DATE INDIQUER
 {date<=YYYY-MM-DD hh-mm-ss}         // SELECTIONNE ARTICLES INFERIEUR OU EGAL A LA DATE INDIQUER
 {date>=YYYY-MM-DD hh-mm-ss}         // SELECTIONNE ARTICLES SUPERIEUR OU EGAL A LA DATE INDIQUER
+
+{tout}                              // SELECTIONNE DONNEES D'UN TABLE SANS RESTRICTIONS
+
+_statutArticle(prop,prepa,publie,refuse,poubelle)_
+
+{statut IN publie,refuse,poubelle}  // SELECTIONNE ARTICLES AVEC LE STATUT INDIQUER
+{statut=refuse}                     // SELECTIONNE ARTICLES AVEC LE STATUT INDIQUER
+
+_classementCommun_
+
 ```
 
 </details>
