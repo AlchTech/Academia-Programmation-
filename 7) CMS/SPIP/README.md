@@ -268,6 +268,7 @@ _critèresSélection_
 
 {branche}                           // SELECTIONNE ARTICLES DE RUBRIQUE ET DE SES SOUS-RUBRIQUE
 {branche 10}                        // SELECTIONNE ARTICLES DE RUBRIQUE ET DE SES SOUS-RUBRIQUE
+{branche?}                          // SELECTIONNE ARTICLES DE ... SI IL Y A ID_RUBRIQUE SINON ALL ARTICLE SITE
 
 {id_secteur=valeur}                 // SELECTIONNE ARTICLES DE RUBRIQUE VALEUR
 {id_secteur}                        // SELECTIONNE ARTICLES DE RUBRIQUE EN COURS
@@ -308,14 +309,92 @@ _statutArticle(prop,prepa,publie,refuse,poubelle)_
 
 _classementCommun_
 
-```
+{par date}                          // AFFICHE PAR DATE A PARTIR DE LA PLUS ANCIENNE
+{par titre}                         // AFFICHE PAR TITRE ORDRE ALPHANUMERIQUE
+{par ...}                           // AFFICHE EN FONCTION DU CRITERE CHOISIT (auteur, ...)
+{par hasard}                        // AFFICHE PAR ORDRE ALEATOIRE
+{par date, titre}                   // AFFICHE PAR DATA PUIS PAR TITRE
+{par popularite}                    // AFFICHE PAR POPULARITE 
 
+{!par ...}                          // AFFICHE PAR ORDRE INVERSE DU PLUS RECENT AUX PLUS ANCIENT
+{inverse}                           // AFFICHE PAR ORDRE INVERSE DU PLUS RECENT AUX PLUS ANCIENT
+
+{unique}                            // EVITE D'AFFICHER UN ARTICLE DEJA PRESENT
+{exclus}                            // EXLUS DE L'AFFICHAGE L'ELEMENT CHOISIT
+
+{logo}                              // SELECTIONNE ELEMENT QUI A UN LOGO
+{titre==^[aA]}                      // SELECTIONNE ELEMENT DONT LE TITRE COMMENCE PAR "a" OU "A"
+{id_secteur != 2}                   // SELECTIONNE ELEMENT DONT LE SECTEUR EST DIFFERENT DE 2
+{age<30}                            // SELECTIONNE ELEMENT DONT LES JOURS SONT INFERIEUR A 30 JOURS
+{annee<=2000}                       // SELECTIONNE ELEMENT DONT LES ANNEES SONT INFERIEUR OU EGAL A 2000
+{titre IN 'Chine', 'Japon'}.        // SELECTIONNE ELEMENT DONT LE TITRE CONTIENT 'Chine' ou 'Japon'
+{0, 10}                             // SELECTIONNE ELEMENT DANS UNE PLAGE EXEMPLE 10 PREMIER ARTICLE
+{5, n}                              // SELECTIONNE ELEMENT DANS UNE PLAGE EXEMPLE DU 6 JUSQU'AU DERNIER
+
+{"div"}                             // PERMET D'INSERER UN BALISE HTML ENTRE CHAQUE BOUCLE
+{", "}                              // PERMET D'INSERER UN TEXTE 'virgule' CHAQUE BOUCLE
 </details>
+
+```
 
 <a id="typeBalise"></a><details><summary>TYPE BALISE</summary>
 
-
 #### <ins>SPIP : 4.3 TYPE DE BALISE
+
+```code
+ARTICLE :
+
+#TITRE                              // AFFICHE TITRE
+#SURTITRE                           // AFFICHE SURTITRE
+#SOUSTITRE                          // AFFICHE SOUS-TITRE
+#CHAPO                              // AFFICHE LE TEXTE D'INTRODUCTION
+#DESCRIPTIF                         // AFFICHE LE DESCRIPTIF
+#INTRODUCTION                       // AFFICHE INTRODUCTION
+#TEXTE                              // AFFICHE TEXTE
+#LESAUTEURS                         // AFFICHE LES AUTEURS DE CETTE ARTICLE AVEC LIEN VERS PAGE AUTEUR
+#PS                                 // AFFICHE POST-SCRIPTUM
+#NOTES                              // AFFICHE LES NOTES DE BAS DE PAGE
+
+#PETITION                           // AFFICHE UNE PETITION
+#FORMULAIRE_SIGNATURE               // CREER UN FORMULAIRE PERMETTANT DE SIGNER PETITION
+#FORMULAIRE_SITE                    // DANS BOUCLE RUBRIQUE PERMET AJOUTER DES REFERENCE VISITEUR
+#FORMULAIRE_FORUM                   // CREER UN FORMULAIRE PERMETTANT D'ECRIRE UN COMMENTAIRE
+#FORMULAIRE_RECHERCHE               // CREER UN FORMULAIRE DE RECHERCHE SPIP
+#PARAMETRES_FORUM                   // ???
+#FORMULAIRE_ECRIRE_AUTEUR           // CREER UN FORMULAIRE POUR ECRIRE A L'AUTEUR
+#FORMULAIRE_INSCRIPTION             // CREER UN FORMULAIRE D'INSCRIPTION Configuration → Interactivité 
+ #FORMULAIRE_LOGIN                  // CREER UN FORMULAIRE DE CONNECTION
+
+
+#ID_ARTICLE                         // AFFICHE L'IDENTIFIANT UNIQUE ARTICLE EN COURS
+#ID_RUBRIQUE                        // AFFICHE L'IDENTIFIANT UNIQUE RUBRIQUE EN COURS
+#ID_SECTEUR                         // AFFICHE L'IDENTIFIANT UNIQUE SECTEUR EN COURS
+#LANG                               // AFFICHE LA LANGUE DE CETTE ARTICLE
+
+#VISITES                            // AFFICHE LE NOMBRE TOTAL DE VISITE
+#POPULARITE                         // AFFICHE POPULARITE DE L'ARTICLE EN POURCENTAGE
+#POPULARITE %                       // AFFICHE POPULARITE DE L'ARTICLE EN POURCENTAGE AVEC SYMBOLE
+#POPULARITE_ABSOLUE                 // AFFICHE POPULARITE DE L'ARTICLE FREQUENTATION QUOTIDIENNE
+#POPULARITE_MAX                     // AFFICHE LA POPULARITE MAXIMUM QUE ELEMENT   PUISSE AVOIR
+#POPULARITE_SITE
+
+#DATE                               // AFFICHE DATE DE MISE EN LIGNE
+#DATE_REDAC                         // AFFICHE DATE DE LA REDACTION AVANT MISE EN LIGNE
+#DATE_MODIF                         // AFFICHE DATE DE LA DERNIERE MODIFICATION
+#DATE_NOUVEAUTES                    // AFFICHE DATE DU DERNIER ENVOIS (MAIL?)
+[(#DATE|nom_mois|annee)]            // AFFICHE DATE AVEC DES FILTRE
+
+#URL_ARTICLE                        // AFFICHE URL DE L'ARTICLE
+
+#LOGO_ARTICLE                       // AFFICHE LOGO ARTICLE
+#LOGO_RUBRIQUE                      // AFFICHE LOGO RUBRIQUE DE L'ARTICLE
+#LOGO_ARTICLE_RUBRIQUE              // AFFICHE LOGO ARTICLE REMPLACER PAR LOGO RUBRIQUE SI ABSENT
+#LOGO_ARTICLE_NORMAL                // AFFICHE LOGO SANS SURVOL
+#LOGO_ARTICLE_SURVOL                // AFFICHE LOGO EN SURVOLANT
+#LOGO_SITE_SPIP                     // AFFICHE LOGO DU SITE
+#LOGO_AUTEUR                        // AFFICHE LOGO AUTEUR
+#LOGO_BREVE                         // AFFICHE LOGO BREVE
+```
 
 </details>
 
