@@ -261,9 +261,9 @@ EXEMPLE BOUCLE :
 
 #### <ins>SPIP : 4.2 TYPE DE CRITERE
 
-```CODE
 ARTICLE :
 
+```CODE
 _critèresSélection_
 
 {branche}                           // SELECTIONNE ARTICLES DE RUBRIQUE ET DE SES SOUS-RUBRIQUE
@@ -306,15 +306,83 @@ _statutArticle(prop,prepa,publie,refuse,poubelle)_
 
 {statut IN publie,refuse,poubelle}  // SELECTIONNE ARTICLES AVEC LE STATUT INDIQUER
 {statut=refuse}                     // SELECTIONNE ARTICLES AVEC LE STATUT INDIQUER
+```
 
-_classementCommun_
+RUBRIQUE :
 
+```CODE
+_critèresSélection_
+
+{id_rubrique=valeur}                // SELECTIONNE RUBRIQUE VALEUR
+{id_rubrique}                       // SELECTIONNE RUBRIQUE EN COURS
+{id_secteur}                        // SELECTIONNE RUBRIQUES DE CE SECTEUR
+{id_parent=valeur}                  // SELECTIONNE SOUS RUBRIQUE DANS LA RUBRIQUE SELECTIONNEES
+{id_parent}                         // SELECTIONNE SOUS RUBRIQUE DANS LA RUBRIQUE EN COURS
+{id_enfant}                         // SELECTIONNE LA RUBRIQUE PARENT QUI CONTIENT LA RUBRIQUE ENFANT
+{meme_parent}                       // SELECTIONNE LES RUBRIQUES AU MEME NIVEAU HIERARCHIQUE QUE RUBRIQUE EN COURS
+{racine}                            // SELECTIONNE LISTE DES SECTEUR
+{id_mot}, {titre_mot=xxx}           // SELECTIONNE RUBRIQUE QUI CONTIENT LE TITRE XXX
+{lang}                              // SELECTIONNE RUBRIQUE DANS LA LANG SELECTIONNEES
+{tout}                              // SELECTIONNE TOUT LES RUBRIQUES
+```
+
+BREVES :
+
+```CODE
+_critèresSélection_
+
+{id_rubrique=valeur}                // SELECTIONNE RUBRIQUE VALEUR
+{id_rubrique}                       // SELECTIONNE RUBRIQUE EN COURS
+{id_breve=valeur}                   // SELECTIONNE BREVE VALEUR
+{id_breve}                          // SELECTIONNE BREVE COURS
+{id_mot}, {titre_mot=xxx}           // SELECTIONNE BREVE QUI CONTIENT LE TITRE XXX
+{recherche}                         // SELECTIONNE BREVE CORRESPONDANT AU MOTS RECHERCHER
+{lang}                              // SELECTIONNE BREVE DE LA LANGUE DEMANDER
+{tout}                              // SELECTIONNE TOUT LES BREVES
+```
+
+AUTEURS :
+
+```code
+_critèresSélection_
+
+{id_auteur=valeur}                  // SELECTIONNE L'AUTEUR VALEUR
+{id_auteur}                         // SELECTIONNE L'AUTEUR EN COURS
+{id_article}                        // SELECTIONNE LES AUTEURS DE CETTE ARTICLE
+{lang}                              // SELECTIONNE BREVE DE LA LANGUE DEMANDER
+{lang_select}                       // SELECTIONNE AUTEURS QUI ON CHOISIT UN LANGUE
+{statut}                            // SELECTIONNE LES AUTEURS AYANT UN STATUT(ADMIN, REDAC, ...)
+{tout}                              // SELECTIONNE TOUT LES AUTEURS
+```
+
+FORUM :
+
+```code
+{id_forum=valeur}                   // SELECTIONNE LE MESSAGE CORRESPONDANT A LA VALEUR
+{id_article}                        // SELECTIONNE LES MESSAGES CORRESPONDANT A CETTE ARTICLE
+{id_rubrique}                       // SELECTIONNE LES MESSAGES CORRESPONDANT A CETTE RUBRIQUE
+{id_breve}                          // SELECTIONNE LES MESSAGES CORRESPONDANT A CETTE BREVE
+{id_syndic}                         // SELECTIONNE LES MESSAGES CORRESPONDANT A CE SITE
+{id_thread}                         // SELECTIONNE MESSAGES CORRESPONDANT A CE FIL DE DISCUSSION
+{id_secteur}                        // SELECTIONNE MESSAGES CORRESPONDANT A CE SECTEUR OU SELECTIONNEES 
+{id_mot}, {titre_mot=xxx}           // SELECTIONNE MESSAGES AYANT POUR TITRE XXX
+{id_groupe}, {type_mot=yyyy}        // SELECTIONNE MESSAGES AYANT LES MOTS YYYY
+{id_parent}                         // SELECTIONNE MESSAGES DEPENDANT D'UN AUTRE MESSAGE
+{id_enfant}                         // SELECTIONNE MESSAGES DONT DEPENT CE MESSAGE EN COURS
+{meme_parent}                       // SELECTIONNE MESSAGES REPONDANT A UN AUTRE MESSAGE
+{statut}                            // SELECTIONNE MESSAGES CORRESPONDANT CERTAIN STATUT
+{tout}                              // SELECTIONNE TOUT LES MESSAGES
+```
+
+COMMUN :
+
+```code
 {par date}                          // AFFICHE PAR DATE A PARTIR DE LA PLUS ANCIENNE
 {par titre}                         // AFFICHE PAR TITRE ORDRE ALPHANUMERIQUE
 {par ...}                           // AFFICHE EN FONCTION DU CRITERE CHOISIT (auteur, ...)
 {par hasard}                        // AFFICHE PAR ORDRE ALEATOIRE
 {par date, titre}                   // AFFICHE PAR DATA PUIS PAR TITRE
-{par popularite}                    // AFFICHE PAR POPULARITE 
+{par popularite}                    // AFFICHE PAR POPULARITE
 
 {!par ...}                          // AFFICHE PAR ORDRE INVERSE DU PLUS RECENT AUX PLUS ANCIENT
 {inverse}                           // AFFICHE PAR ORDRE INVERSE DU PLUS RECENT AUX PLUS ANCIENT
@@ -334,22 +402,21 @@ _classementCommun_
 {"div"}                             // PERMET D'INSERER UN BALISE HTML ENTRE CHAQUE BOUCLE
 {", "}                              // PERMET D'INSERER UN TEXTE 'virgule' CHAQUE BOUCLE
 </details>
-
 ```
 
 <a id="typeBalise"></a><details><summary>TYPE BALISE</summary>
 
 #### <ins>SPIP : 4.3 TYPE DE BALISE
 
-```code
 ARTICLE :
 
+```code
 #TITRE                              // AFFICHE TITRE
 #SURTITRE                           // AFFICHE SURTITRE
 #SOUSTITRE                          // AFFICHE SOUS-TITRE
 #CHAPO                              // AFFICHE LE TEXTE D'INTRODUCTION
 #DESCRIPTIF                         // AFFICHE LE DESCRIPTIF
-#INTRODUCTION                       // AFFICHE INTRODUCTION
+#INTRODUCTION                       // AFFICHE 600 PREMIER CARACTERE DU TEXTE
 #TEXTE                              // AFFICHE TEXTE
 #LESAUTEURS                         // AFFICHE LES AUTEURS DE CETTE ARTICLE AVEC LIEN VERS PAGE AUTEUR
 #PS                                 // AFFICHE POST-SCRIPTUM
@@ -358,12 +425,12 @@ ARTICLE :
 #PETITION                           // AFFICHE UNE PETITION
 #FORMULAIRE_SIGNATURE               // CREER UN FORMULAIRE PERMETTANT DE SIGNER PETITION
 #FORMULAIRE_SITE                    // DANS BOUCLE RUBRIQUE PERMET AJOUTER DES REFERENCE VISITEUR
-#FORMULAIRE_FORUM                   // CREER UN FORMULAIRE PERMETTANT D'ECRIRE UN COMMENTAIRE
 #FORMULAIRE_RECHERCHE               // CREER UN FORMULAIRE DE RECHERCHE SPIP
-#PARAMETRES_FORUM                   // ???
+#FORMULAIRE_FORUM                   // CREER UN FORMULAIRE PERMETTANT D'ECRIRE UN COMMENTAIRE
+#PARAMETRES_FORUM                   // [<a href="spip.php?page=forum&(#PARAMETRES_FORUM)">Répondre à cette article</a>]
 #FORMULAIRE_ECRIRE_AUTEUR           // CREER UN FORMULAIRE POUR ECRIRE A L'AUTEUR
 #FORMULAIRE_INSCRIPTION             // CREER UN FORMULAIRE D'INSCRIPTION Configuration → Interactivité 
- #FORMULAIRE_LOGIN                  // CREER UN FORMULAIRE DE CONNECTION
+#FORMULAIRE_LOGIN                   // CREER UN FORMULAIRE DE CONNECTION
 
 
 #ID_ARTICLE                         // AFFICHE L'IDENTIFIANT UNIQUE ARTICLE EN COURS
@@ -394,6 +461,103 @@ ARTICLE :
 #LOGO_SITE_SPIP                     // AFFICHE LOGO DU SITE
 #LOGO_AUTEUR                        // AFFICHE LOGO AUTEUR
 #LOGO_BREVE                         // AFFICHE LOGO BREVE
+```
+
+RUBRIQUE :
+
+```code
+#ID_SECTEUR                         // AFFICHE IDENTIFIANT SECTEUR DE LA RUBRIQUE
+#ID_PARENT                          // AFFICHE IDENTIFIANT DU PARENT DE LA RUBRIQUE
+#ID_RUBRIQUE                        // AFFICHE IDENTIFIANT RUBRIQUE
+
+#TITRE                              // AFFICHE TITRE RUBRIQUE
+#DESCRIPTIF                         // AFFICHE DESCRIPTIF RUBRIQUE
+#TEXTE                              // AFFICHE TEXTE RUBRIQUE
+#INTRODUCTION                       // AFFICHE 600 PREMIER CARACTERE DU TEXTE
+#NOTES                              // AFFICHE NOTES BAS DE PAGES
+
+#LANG                               // AFFICHE LA LANG DE CETTE RUBRIQUE
+#DATE                               // AFFICHE DATE DE LA DERNIER PUBLICATION DANS CETTE RUBRIQUE
+#LOGO_RUBRIQUE                      // AFFICHE LOGO RUBRIQUE
+#LOGO_RUBRIQUE_NORMAL               // AFFICHE LOGO RUBRIQUE SANS SURVOL
+#URL_RUBRIQUE                       // AFFICHE URL DE LA PAGE RUBRIQUE
+
+#FORMULAIRE_FORUM                   // AFFICHE FORMULAIRE FORUM
+#PARAMETRES_FORUM                   // [<a href="spip.php?page=forum&(#PARAMETRES_FORUM)">Répondre à cette rubrique</a>]
+#FORMULAIRE_SITE                    // DANS BOUCLE RUBRIQUE PERMET AJOUTER DES REFERENCE VISITEUR*
+```
+
+BREVE :
+
+```code
+#ID_BREVE                             // AFFICHE IDENTIFIANT BREVE
+#ID_RUBRIQUE                          // AFFICHE IDENTIFIANT RUBRIQUE DONT DEPEND LA BREVE
+
+#TITRE                                // AFFICHE TITRE DE LA BREVE
+#TEXTE                                // AFFICHE TEXTE DE LA BREVE
+#INTRODUCTION                         // AFFICHE 600 PREMIER CARACTERE DU TEXTE
+#NOTES                                // AFFICHE NOTES BAS DE PAGE
+
+#NOM_SITE                             // AFFICHE NOM SITE INDIQUER EN REFERENCES
+#URL_SITE                             // AFFICHE URL SITE INDIQUER EN REFERENCES
+
+#DATE                                 // AFFICHE DATE DE LA PUBLICATION
+#LANG                                 // AFFICHE LA LANG DE LA BREVE
+#LOGO_BREVE                           // AFFICHE LOGO DE LA BREVE
+#LOGO_BREVE_RUBRIQUE                  // AFFICHE LOGO DE LA BREVE SINON LOGO RUBRIQUE
+#URL_BREVE                            // AFFICHE URL DE LA PAGE BREVE
+
+#FORMULAIRE_FORUM                     // AFFICHE FORMULAIRE POUR CETTE BREVE
+#PARAMETRES_FORUM                     // [<a href="spip.php?page=forum&(#PARAMETRES_FORUM)">Répondre à cette bréve</a>]
+```
+
+AUTEURS :
+
+```code
+#ID_AUTEUR                          // AFFICHE IDENTIFIANT AUTEUR
+#NOM                                // AFFICHE NOM AUTEUR
+#BIO                                // AFFICHE BIOGRAPHIE AUTEUR
+#EMAIL                              // AFFICHE EMAIL AUTEUR
+#NOTES                              // AFFICHE NOTE DE BAS DE PAGE
+
+#NOM_SITE                           // AFFICHE NOM SITE DE L'AUTEUR
+#URL_SITE                           // AFFICHE URL DU SITE DE L'AUTEUR
+
+#PGP                                // AFFICHE CLE PUBLIQUE CRYPTE
+#LANG                               // AFFICHE LA LANGUE DE L'AUTEUR
+#LOGO_AUTEUR                        // AFFICHE LOGO DE L'AUTEUR
+#URL_AUTEUR                         // AFFICHE URL PAGE SPIP DE L'AUTEUR
+
+#FORMULAIRE_ECRIRE_AUTEUR           // AFFICHE FORMULAIRE POUR ECRIRE A L'AUTEUR
+```
+
+FORUM :
+
+```code
+#ID_FORUM                              // AFFICHE IDENTIFIANT DU MESSAGE
+#ID_THREAD                             // AFFICHE IDENTIFIANT DU FIL D'ACTUALITEES
+#ID_BREVE                              // AFFICHE IDENTIFIANT BREVE A LAQUEL CE MESSAGE EST ASSOCIER
+#ID_ARTICLE                            // AFFICHE IDENTIFIANT ARTICLE AU QUEL REPOND CE MESSAGE
+#ID_RUBRIQUE                           // AFFICHE IDENTIFIANT RUBRIQUE AU QUEL REPOND CE MESSAGE
+#ID_SYNDIC                             // AFFICHE IDENTIFIANT DU SITE AU QUEL REPOND CE MESSAGE
+
+#TITRE                                 // AFFICHE TITRE DU MESSAGE
+#TEXTE                                 // AFFICHE TEXTE DU MESSAGE
+#AUTEUR                                // AFFICHE AUTEUR DU MESSAGE
+#IP                                    // AFFICHE L'IP DE L'AUTEUR
+#EMAIL                                 // AFFICHE EMAIL DE L'AUTEUR DU MESSAGE
+#NOM_SITE                              // AFFICHE NOM DU SITE WEB INDIQUE PAR L'AUTEUR
+#URL_SITE                              // AFFICHE URL DU SITE WEB INDIQUE PAR L'AUTEUR
+
+#DATE                                  // AFFICHE DATE DE PUBLICATION DU MESSAGE
+#URL_FORUM                             // AFFICHE L'URL QUI AFFICHE LE MESSAGE DU FORUM
+
+#FORMULAIRE_FORUM                      // AFFICHE FORMULAIRE PERMETTANT DE REPONDRE A CE MESSAGE
+#PARAMETRES_FORUM                      // [<a href="spip.php?page=forum&(#PARAMETRES_FORUM)">Répondre à ce message</a>]
+
+_statutMessage(prop,prepa,publie,refuse,off, ...)_
+
+#STATUT                                // AFFICHE LE MESSAGE EN FONCTION DE SON STATUT
 ```
 
 </details>
