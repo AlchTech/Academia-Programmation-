@@ -246,6 +246,7 @@ EXEMPLE BOUCLE :
 <BOUCLE_auteurs(AUTEURS){critères...}></BOUCLE_auteurs>         // RECUPERE LES AUTEURS ECRIT SUR SPIP
 <BOUCLE_forums(FORUMS){critères...}></BOUCLE_forums>            // RECUPERE LES FORUMS ECRIT SUR SPIP
 <BOUCLE_mots(MOTS){critères...}></BOUCLE_mots>                  // RECUPERE LES MOTS ECRIT SUR SPIP
+<BOUCLE_groupes(GROUPES_MOTS)</BOUCLE_groupes>                  // RECUPERE LES GROUPES ECRIT SUR SPIP
 <BOUCLE_documents(DOCUMENTS){critères...}></BOUCLE_documents>   // RECUPERE LES DOCUMENTS ECRIT SUR SPIP
 <BOUCLE_sites(SITES){critères...}></BOUCLE_sites>               // RECUPERE LES SITES ECRIT SUR SPIP
 <BOUCLE_syndic(SYNDIC_ARTICLES){critères...}></BOUCLE_syndic>   // RECUPERE LES SYNDIC_ARTICLES ECRIT SUR SPIP
@@ -374,18 +375,80 @@ FORUM :
 {tout}                              // SELECTIONNE TOUT LES MESSAGES
 ```
 
+MOTS :
+
+```code
+{id_mot=valeur}                     // SELECTIONNE LE MOT CLEF CORRESPONDANT A L'ID MOT
+{id_groupe=valeur}                  // SELECTIONNE UN GROUPE DE MOT CORREPONDANT A L'ID GROUPE
+{id_article}                        // SELECTIONNE MOT CLEF ASSOCIER A CET ARTICLE
+{id_rubrique}                       // SELECTIONNE MOT CLEF ASSOCIER A UNE RUBRIQUE
+{id_breve}                          // SELECTIONNE MOT CLEF ASSOCIER A UN BREVE
+{id_syndic}                         // SELECTIONNE MOT CLEF ASSOCIER A SITE DE REFERENCE
+{id_forum}                          // SELECTIONNE MOT CLEF ASSOCIER A MESSAGE DE FORUM
+{titre=france}                      // SELECTIONNE MOT CLEF INTITULE "FRANCE"
+{type=pays}                         // SELECTIONNE MOT CLEF DU GROUPE INTITULE "PAYS"
+{tout}                              // SELECTIONNE TOUT LES MOT-CLEFS 
+```
+
+GROUPE_MOTS :
+
+```code
+voir commun
+```
+
+DOCUMENTS :
+
+```CODE
+{id_document}                       // SELECTIONNE IDENTIFIANT DU DOCUMENT
+{id_article=value}                  // SELECTIONNE DOCUMENTS DE L'ARTICLE AYANT CET ID
+{id_rubrique}                       // SELECTIONNE DOCUMENTS DE LA RUBRIQUE AYANT CET ID
+{id_breve}                          // SELECTIONNE DOCUMENTS DE LA BREVE AYANT CET ID
+{mode=document}                     // SELECTIONNE DOCUMENTS MULTIMEDIA
+{mode=image}                        // SELECTIONNE DOCUMENTS IMAGE
+{extension=jpg|png|gif}             // SELECTIONNE DOCUMENTS AYANT EXTENSION SUIVANTE
+{media=...}                         // SELECTIONNE DOCUMENTS SELON SONT TYPE "image","audio","video","file"
+{distant=oui}                       // SELECTIONNE DOCUMENTS SUR UN AUTRE SERVEUR
+{distant=non}                       // SELECTIONNE DOCUMENTS LOCAL
+{largeur >= 1000}                   // SELECTIONNE DOCUMENTS AYANT LARGEUR SUPERIEUR OU EGAL
+{hauteur <= 1000}                   // SELECTIONNE DOCUMENTS AYANT HAUTEUR SUPERIEUR OU EGAL
+{portrait}                          // SELECTIONNE DOCUMENTS AYANT LARGEUR PLUS GRANDE QUE HAUTEUR
+{paysage}                           // SELECTIONNE DOCUMENTS AYANT HAUTEUR PLUS GRANDE QUE LARGEUR
+{carre}                             // SELECTIONNE DOCUMENTS AYANT HAUTEUR EGAL A LA LARGEUR
+
+{doublons}                          // EMPECHE D'AFFICHER LES DOCUMENTS DOUBLONS
+{vu=non}                            // EMPECHE D'AFFICHER LES DOCUMENTS DANS LE TEXTE OU CHAPO
+
+{par rang_lien}                     // ORDONNE DOCUMENTS SELON LEUR RANG
+```
+
+SITE :
+
+```code
+{tout}                              // SELECTIONNE TOUT LES SITES REFERENCES
+{id_syndic}                         // SELECTIONNE TOUT LES SITES AYANT POUR REFERENCE ID SYNDIC
+{id_rubrique}                       // SELECTIONNE TOUT LES SITES AYANT POUR REFERENCE ID RUBRIQUE
+{id_secteur}                        // SELECTIONNE TOUT LES SITES AYANT POUR REFERENCE ID SECTEUR
+{id_groupe=zzzz}                    // SELECTIONNE TOUT LES SITES AYANT POUR REFERENCE ID GROUPE
+{id_mot}                            // SELECTIONNE SITES LIEE AU MOT A L'ID MOT CLEF
+{titre_mot=xxxx}                    // SELECTIONNE SITES LIEE AU MOT CLEF "xxxx"
+{type_mot=yyyy}                     // SELECTIONNE SITES LIEE AU GROUPE DE MOT "yyyy"
+{syndication=oui}                   // SELECTIONNE SITES FESANT L'OBJET D'UNE SYNDICATION
+{syndication=non}                   // SELECTIONNE SITES NE FESANT PAS L'OBJET D'UNE SYNDICATION
+{moderation=oui}                    // SELECTIONNE LES SITES SONT BLOQUER "moderes"
+```
+
 COMMUN :
 
 ```code
-{par date}                          // AFFICHE PAR DATE A PARTIR DE LA PLUS ANCIENNE
-{par titre}                         // AFFICHE PAR TITRE ORDRE ALPHANUMERIQUE
-{par ...}                           // AFFICHE EN FONCTION DU CRITERE CHOISIT (auteur, ...)
-{par hasard}                        // AFFICHE PAR ORDRE ALEATOIRE
-{par date, titre}                   // AFFICHE PAR DATA PUIS PAR TITRE
-{par popularite}                    // AFFICHE PAR POPULARITE
+{par date}                          // SELECTIONNE PAR DATE A PARTIR DE LA PLUS ANCIENNE
+{par titre}                         // SELECTIONNE PAR TITRE ORDRE ALPHANUMERIQUE
+{par ...}                           // SELECTIONNE EN FONCTION DU CRITERE CHOISIT (auteur, ...)
+{par hasard}                        // SELECTIONNE PAR ORDRE ALEATOIRE
+{par date, titre}                   // SELECTIONNE PAR DATA PUIS PAR TITRE
+{par popularite}                    // SELECTIONNE PAR POPULARITE
 
-{!par ...}                          // AFFICHE PAR ORDRE INVERSE DU PLUS RECENT AUX PLUS ANCIENT
-{inverse}                           // AFFICHE PAR ORDRE INVERSE DU PLUS RECENT AUX PLUS ANCIENT
+{!par ...}                          // SELECTIONNE PAR ORDRE INVERSE DU PLUS RECENT AUX PLUS ANCIENT
+{inverse}                           // SELECTIONNE PAR ORDRE INVERSE DU PLUS RECENT AUX PLUS ANCIENT
 
 {unique}                            // EVITE D'AFFICHER UN ARTICLE DEJA PRESENT
 {exclus}                            // EXLUS DE L'AFFICHAGE L'ELEMENT CHOISIT
@@ -558,6 +621,67 @@ FORUM :
 _statutMessage(prop,prepa,publie,refuse,off, ...)_
 
 #STATUT                                // AFFICHE LE MESSAGE EN FONCTION DE SON STATUT
+```
+
+MOTS :
+
+```code
+#ID_MOT                                // AFFICHE IDENTIFIANT DU MOT CLEF
+#TITRE                                 // AFFICHE LE MOT CLEF
+#DESCRIPTIF                            // AFFICHE DESCRIPTIF DU MOT CLEF
+#TEXTE                                 // AFFICHE TEXTE ASSOCIER AU MOT CLEF
+#TYPE                                  // AFFICHE LA CATEGORIE DANS LAQUELLE ET LE MOT CLEF
+#LOGO_MOT                              // AFFICHE LOGO ASSOCIER AU MOT CLEF
+#URL_MOT                               // AFFICHE URL DU MOT CLEF
+```
+
+GROUPE_MOTS :
+
+```code
+#ID_GROUPE                             // AFFICHE IDENTIFIANT DU GROUPE DE MOT
+#TITRE                                 // AFFICHE TITRE DU GROUPE DE MOT
+#DESCRIPTIF                            // AFFICHE DESCRIPTIF DU GROUPE DE MOT
+#TEXTE                                 // AFFICHE TEXTE DU GROUPE DE MOT
+```
+
+DOCUMENT :
+
+```code
+#ID_DOCUMENT                           // AFFICHE IDENTIFIANT DU DOCUMENT
+#LOGO_DOCUMENT                         // AFFICHE LE LOGO ASSOCIER AU DOCUMENT
+#URL_DOCUMENT                          // AFFICHE URL DU FICHIER MULTIMEDIA [(#LOGO_DOCUMENT{#URL_DOCUMENT})]
+#TITRE                                 // AFFICHE TITRE DU DOCUMENT
+#DESCRIPTIF                            // AFFICHE DESCRIPTIF DU DOCUMENT
+#CREDITS                               // AFFICHE CREDITS DU DOCUMENT (nom photographe, ...)
+#TYPE_DOCUMENT                         // AFFICHE LE TYPE DE DOCUMENT (mp3, pdf, ...) 
+#EXTENSION                             // AFFICHE L'EXTENSION DU DOCUMENT (mp3, pdf, ...)
+#MEDIA                                 // AFFICHE LE TYPE DE MEDIA (image, audio, video, file)
+[(#TAILLE|taille_en_octets)]           // AFFICHE SA TAILLE EN OCTET (kilooctets, mégaoctets)
+#MIME_TYPE                             // AFFICHE LE TYPE MIME (image/jpeg, ...)
+#DATE                                  // AFFICHE LA DATE DE PUBLICATION DU DOCUMENT 
+#DISTANT                               // AFFICHE SELON QUE LE DOCUMENT EST DISTANT OU LOCAL
+#FICHIER                               // AFFICHE URL RELATIVE DU DOCUMENT 
+[(#FICHIER|basename)]                  // AFFICHE NOM DU DOCUMENT
+[(#FICHIER|image_reduire{500})]        // PERMET REDUIRE L'IMAGE
+
+#LARGEUR                               // DONNE UNE LARGEUR AU DOCUMENT
+#HAUTEUR                               // DONNE UNE HAUTEUR AU DOCUMENT
+```
+
+SITE :
+
+```code
+#ID_SYNDIC                             // AFFICHE IDENTIFIANT DU SITE DE REFERENCE
+#NOM_SITE                              // AFFICHE NOM DU SITE DE REFERENCE
+#URL_SITE                              // AFFICHE URL DU SITE DE REFERENCE
+#URL_SYNDIC                            // AFFICHE URL DU FICHIER DE SYNDICATION DE CE SITE
+#DESCRIPTIF                            // AFFICHE DESCRIPTIF DU SITE DE REFERENCES
+#LOGO_SITE                             // AFFICHE LOGO ATTRIBUE AU SITE
+#ID_RUBRIQUE                           // AFFICHE IDENTIFIANT DE LA REBRIQUE QUI CONTIENT CETTE REFERENCE
+#ID_SECTEUR                            // AFFICHE IDENTIFIANT DU SECTEUR QUI CONTIENT CETTE REFERENCE
+
+#FORMULAIRE_FORUM                      // AFFICHE FORMULAIRE POUR ECRIRE AU SUJET DU SITE
+#PARAMETRES_FORUM                      // [<a href="spip.php?page=forum&(#PARAMETRES_FORUM)">Répondre</a>]
 ```
 
 </details>
