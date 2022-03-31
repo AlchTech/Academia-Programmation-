@@ -437,6 +437,28 @@ SITE :
 {moderation=oui}                    // SELECTIONNE LES SITES SONT BLOQUER "moderes"
 ```
 
+SYNDIC_ARTICLES :
+
+```code
+{tout}                              // SELECTIONNE TOUT LES SITES SINDIQUES
+{id_syndic_article=valeur}          // SELECTIONNE ARTICLE SINDIQUES
+{id_syndic}                         // SELECTIONNE ARTICLES DU SITE SINDIQUES 
+{id_rubrique}                       // SELECTIONNE ARTICLES DANS CETTE RUBRIQUE
+{id_secteur}                        // SELECTIONNE ARTICLES DANS CE SECTEUR
+```
+
+SIGNATURES :
+
+```code
+{id_article}                        // SELECTIONNE LES SIGNATURES DE LA PETITION
+{id_signature}                      // SELECTIONNE LA SIGNATURE CORRESPONDANT A L'IDENTIFIANT
+{id_trad}                           // SELECTIONNE LES SIGNATURES DE LA PETITION OU TRADUCTION
+{tout}                              // SELECTIONNE TOUT LES SIGNATURES DU SITE
+
+{par nom_email}                     // CLASSE SIGNATAIRE PAR NOM
+{par ad_email}                      // CLASSE SIGNATAIRE PAR EMAIL
+```
+
 COMMUN :
 
 ```code
@@ -682,6 +704,43 @@ SITE :
 
 #FORMULAIRE_FORUM                      // AFFICHE FORMULAIRE POUR ECRIRE AU SUJET DU SITE
 #PARAMETRES_FORUM                      // [<a href="spip.php?page=forum&(#PARAMETRES_FORUM)">Répondre</a>]
+```
+
+SYNDIC_ARTICLES :
+
+```code
+#ID_SYNDIC_ARTICLE                     // AFFICHE IDENTIFIANT DE L'ARTICLES SYNDIQUES
+#ID_SYNDIC                             // AFFICHE IDENTIFIANT DU SITE SYNDIQUES
+#TITRE                                 // AFFICHE TITRE DE L'ARTICLES SYNDIQUES [(#TITRE*)]
+#DESCRIPTIF                            // AFFICHE DESCRIPTIF DE L'ARTICLES SYNDIQUES
+#URL_ARTICLE                           // AFFICHE URL DE L'ARTICLE SYNDIQUES
+#DATE                                  // AFFICHE DATE DE PUBLICATION DE L'ARTICLE SYNDIQUES
+#LESAUTEURS                            // AFFICHE LES AUTEURS DE L'ARTICLE SYNDIQUES
+#TAGS                                  // AFFICHE TAGS DE L'ARTICLE SYNDIQUES
+
+#NOM_SITE                              // AFFICHE NOM DU SITE SYNDIQUES CONTENANT ARTICLE
+#URL_SITE                              // AFFICHE URL DU SITE SYNDIQUES CONTENANT ARTICLE      
+#SOURCE                                // AFFICHE NOM DE LA VERITABLE SOURCE DE L'ARTICLE         
+#URL_SOURCE                            // AFFICHE URL DE LA VERITABLE SOURCE DE L'ARTICLE
+
+#RAW_DATA                              // AFFICHE PARTIE FLUX RSS DE L'ARTICLE COURANT
+#RAW_DATA                              // AFFICHE AU FORMAT TABLEAU SI DECODER SOUS CETTE FORME
+#RAW_DATA*                             // AFFICHE DATA BRUT (texte)
+#RAW_DATA{x}                           // AFFICHE #RAW_DATA|table_valeur{x} VOIR FILTRE
+#RAW_DATA{a/b}                         // AFFICHE #RAW_DATA|table_valeur{a/b} VOIR FILTRE
+```
+
+SIGNATURES :
+
+```code
+#ID_SIGNATURE                         // AFFICHE IDENTIFIANT DU MESSAGE
+#ID_ARTICLE                           // AFFICHE IDENTIFIANT ARTICLE POUR CETTE PETITION
+#DATE                                 // AFFICHE DATE DE PUBLICIATION
+#MESSAGE                              // AFFICHE TEXTE DU MESSAGE
+#NOM_EMAIL                            // AFFICHE NOM AUTEUR MESSAGE
+#EMAIL                                // AFFICHE EMAIL AUTEUR MESSAGE
+#NOM_SITE                             // AFFICHE NOM DU SITE WEB INDIQUE PAR AUTEUR
+#URL_SITE                             // AFFICHE URL DU SITE WEB INDIQUE PAR AUTEUR
 ```
 
 </details>
