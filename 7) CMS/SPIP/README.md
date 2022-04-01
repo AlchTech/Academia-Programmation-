@@ -254,6 +254,13 @@ EXEMPLE BOUCLE :
 <BOUCLE_hierarchie(HIERARCHIE){critères...}></BOUCLE_hierarchie>// RECUPERE LES HIERARCHIE ECRIT SUR SPIP
 <BOUCLE_data(DATA){critères...}></BOUCLE_data>                  // RECUPERE LES DATA ECRIT SUR SPIP
 <BOUCLE_test(CONDITION){critères...}></BOUCLE_test>             // RECUPERE LES CONDITION ECRIT SUR SPIP
+
+<BOUCLEx …>
+  <li>#TITRE
+    <BOUCLEn(BOUCLEx)></BOUCLEn>                                // RECUPERE LA BOUCLEx ET LA COLLE DANS BOUCLEn
+  </li>
+</BOUCLEx>
+
 ```
 
 </details>
@@ -866,7 +873,52 @@ DATE :
 ```code
 Les filtres suivants s’appliquent aux dates ([(#DATE|filtre)]
 
-|affdate                               //
+|affdate                               // AFFICHE SOUS FORME DE TEXT (13 janvier 2001)
+|affdate{'Y-m'}                        // AFFICHE SOUS FORME NUMERIQUE (2001-01)
+|affdate{'saison'}                     // AFFICHE SAISON
+
+|affdate_jourcourt                     // AFFICHE NOM MOIS ET JOUR NUMERIC (3 mars)
+|affdate_court                         // AFFICHE NOM MOIS ET JOUR NUMERO (3 mars)
+|affdate_mois_annee                    // AFFICHE NOM MOIS ET ANNEES (mars 2003)
+
+|affdate_heure                         // AFFICHE DATE SUIVIE DE L'HEURE (3 Avril 2005 à 20h00min)
+|jour                                  // AFFICHE LE JOUR EN NOMBRE (16)
+|mois                                  // AFFICHE MOIS EN NOMBRE (3)
+|annee                                 // AFFICHE ANNEES EN NOMBRE (2022)
+|heures                                // AFFICHE HEURE D'UNE DATE (5h)
+|minutes                               // AFFICHE MINUTES D'UNE DATE (50)
+|secondes                              // AFFICHE SECONDES D'UNE DATE (30)
+|saison                                // AFFICHE SAISON D'UNE DATE (hiver)
+
+|unique                                // AFFICHE SEULEMENT SI LA VALEUR EST UNIQUE
+```
+
+TEXTE :
+
+```code
+Les filtres suivants s’appliquent aux dates ([(#TEXTE|filtre)]
+
+|liens_ouvrants                       // LE LIEN REDIRIGE VERS UN NOUVELLE FENETRE DE NAVIGATION
+
+|supprimer_numero                     // SUPPRIME LES NUMEROS {par num titre} (5. titre)
+|PtoBR                                // SUPPRIME LES SAUTS DE PARAGRAPHE EN PASSAGE DE LIGNE
+|supprimer_tags                       // SUPPRIMEE TOUT LES BALISES <...>
+|textebrut                            // SUPPRIMEE TOUT LES BALISES <...> EN LES REMPLACANT PAR DES SAUT DE LIGNE
+
+|texte_backend                        // TRANSFORME UN TEXTE POUR RENDRE COMPATIBLE AVEC FLUX XML
+|taille_en_octets                     // TRANSFORME LE NOMBRE D'OCTETS(25678906) EN (24.4 Mo)
+
+|couper{80}                           // COUPE UN TEXTE APRES UN CERTAIN NOMBRE DE CARACTERE
+|lignes_longues{80}                   // COUPE UN MOT TROP LONG APRES UN CERTAIN NOMBRE DE CARACTERE
+
+[(#TITRE|match{toto})]                // AFFICHE TITRE/TEXTE AYANT POUR MOT OU EXPRESSION REGULIERE
+[(#TEXTE|replace{au temps,autant})]   // REMPLACE DES MOTS DU TEXTES PAR D'AUTRES                          
+```
+
+TEST :
+
+```CODE
+
 ```
 
 </details>
