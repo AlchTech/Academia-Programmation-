@@ -459,6 +459,56 @@ SIGNATURES :
 {par ad_email}                      // CLASSE SIGNATAIRE PAR EMAIL
 ```
 
+HIERARCHIE :
+
+```code
+Attention : cette boucle sera obligatoirement placée à l’intérieur d’une boucle ARTICLES ou RUBRIQUES
+
+{id_article}                        // SELECTIONNE TOUTE LES RUBRIQUE DEPUIS LA RACINE JUSQU'A ARTICLE ACTUEL
+{id_rubrique}                       // SELECTIONNE TOUTE LES RUBRIQUE DEPUIS LA RACINE JUSQU'A RUBRIQUE ACTUEL
+{tout}                              // SELECTIONNE TOUT LES RUBRIQUES
+```
+
+DATA :
+
+```code
+<BOUCLE_afficher(DATA){source format,données}>
+ [(#CLE)] - [(#VALEUR|print)]
+</BOUCLE_afficher>
+
+{source format, données}
+
+Le format peut être de ce type :
+-  table (alias array ou tableau), pour un tableau déjà créé
+-  csv, json, yaml pour un fichier composé dans l’un de ces formats
+-  file pour boucler sur les lignes d’un fichier
+-  glob ou pregfiles pour boucler sur les fichiers d’un répertoire (et plus...)
+-  rss (alias atom) pour lire un flux de nouvelles
+-  plugins pour lister les plugins actifs sur le site
+-  yql pour envoyer une requête sur le webservice de Yahoo Query Language
+-  sql pour envoyer une requête brute au serveur SQL (utiliser {source sql, connecteur:requete} pour envoyer requête sur DB)
+-  ics pour boucler sur des calendriers (nécessite le plugin icalendar : lire Plugin iCalendar)
+-  etc.
+
+Les données peuvent être de plusieurs natures, en fonction du format :
+-  un tableau de données, par exemple #ENV*
+-  le chemin d’un fichier sur le disque dur, ex : sources/definitions.csv
+-  le chemin d’un fichier ou d’un dossier sur le disque dur
+-  l’URL d’un fichier ou d’un webservice, ex : http://per.sonn.es/bases/phobia.fr.yaml
+-  chaîne quelconque de format transformer en tableau de données, ex : "select * from flickr.photos.search where text='spip'"
+
+{valeur=x}
+{par xx}
+{!par xx}
+{a,b}
+{pagination ...}
+{fusion /x/y}
+{datapath chemin/vers/ma/donnee}
+
+
+VOIR UTILISATION PLUS EN DETAIL https://www.spip.net/fr_article5444.html ET https://www.spip.net/fr_article5443.html
+```
+
 COMMUN :
 
 ```code
@@ -488,6 +538,8 @@ COMMUN :
 {", "}                              // PERMET D'INSERER UN TEXTE 'virgule' CHAQUE BOUCLE
 </details>
 ```
+
+</details>
 
 <a id="typeBalise"></a><details><summary>TYPE BALISE</summary>
 
@@ -741,6 +793,80 @@ SIGNATURES :
 #EMAIL                                // AFFICHE EMAIL AUTEUR MESSAGE
 #NOM_SITE                             // AFFICHE NOM DU SITE WEB INDIQUE PAR AUTEUR
 #URL_SITE                             // AFFICHE URL DU SITE WEB INDIQUE PAR AUTEUR
+```
+
+HIERARCHIE :
+
+```code
+voir balise rubrique
+```
+
+DATA :
+
+```code
+VOIR UTILISATION PLUS EN DETAIL https://www.spip.net/fr_article5444.html ET https://www.spip.net/fr_article5443.html
+```
+
+COMMUN :
+
+```code
+
+_balisesDéfiniesALaConfiguration_
+
+#NOM_SITE_SPIP                         // AFFICHE NOM DU SITE SPIP
+#URL_SITE_SPIP                         // AFFICHE URL DU SITE SPIP #URL_SITE_SPIP/hello.php
+#DESCRIPTIF_SITE_SPIP                  // AFFICHE DESCRIPTIF DU SITE SPIP
+#EMAIL_WEBMASTER                       // AFFICHE EMAIL DU WEBMASTER
+#LOGO_SITE_SPIP                        // AFFICHE LOGO DU SITE
+#CHARSET                               // AFFICHE JEUX DE CARACTERE UTILISE
+#LANG                                  // AFFICHE LA LANG DU SITE
+#LANG_DIR, #LANG_LEFT, #LANG_RIGHT     // AFFICHE SENS DE LECTURE
+
+#MENU_LANG                             // FABRIQUE UN MENU DE CHOIX DE LANG
+
+_balisesMiseEnPage_
+
+#CHEMIN{mon_style.css}                 // AFFICHE LE CHEMIN JUSQU'AU FICHIER VOULU
+#PUCE                                  // AFFICHE UNE PUCE
+#FORMULAIRE_ADMIN                      // AFFICHE LES BALISES (RECALCULER PAGE, ...)
+#DEBUT_SURLIGNE, #FIN_SURLIGNE         // COLORIE LES MOTS CLEFS  
+#INSERT_HEAD                           // PERMET D'AJOUTER CONTENU ET PLUGIN DANS <head></head>
+
+_balisesTechniques_
+
+#REM                                   // PERMET D'ECRIRE UN COMMENTAIRE SPIP (non affiché)
+
+#SELF                                  // spip.php?article25&var_mode=recalcul la balise #SELF retournera : spip.php?article25
+#URL_PAGE                              // #URL_PAGE{other} renvoie vers la page other.html
+#URL_PAGE{toto,id_article=#ID_ARTICLE} // Génèrera l’url spip.php?page=toto&id_article=XXX
+
+#ENV                                   // la balise #ENV est filtrée par htmlspecialchars
+[(#ENV{xxxx,zzzz})]                    // AFFICHE VARIABLE ENVIRONNEMENT NOMMEE XXXX ou ZZZZ si XXXX n'existe pas
+<B_name(AUTEURS) {nom == #ENV{lettre,^A}}> // AFFICHE AUTEURS QUI COMMENT PAR UN "A"
+
+#SET{variable,valeur}                  // AFFECTE UN NOM A UNE VALEUR DANS SPIP
+#SET{xxx,yyy}                          // XXX(name_Variable) = YYY(valeur_Variable)
+#GET{variable}                         // PERMET DE RECUPERER LA VALEUR STOCKER DANS UNE VARIABLE
+#GET{xxx}                              // RECUPERE LA VALEUR DE 'XXX' QUI EST 'YYY'
+
+#HTTP_HEADER{argument}                 // PERMET DE MODIFER ENTETE HTTP DE LA PAGE
+#VAL{valeur}                           // AFFICHE VALEUR ENTRE ACCOLADE "valeur"
+#CONST{nom_de_constante}               // AFFICHE CONSTANTE ENTRE ACCOLADE "nom_de_constante"
+#EVAL{2+2}                             // AFFICHE LE CALCUL DES EXPRESSION PHP ENTRE ACCOLADE "4"
+#CACHE{temps}                          // DETERMINE LE DELAI(24*3600) AU BOUT DUQUEL LE SQUELLETTE DOIT ETRE REINTERPRETER 
+#SQUELETTE                             // AFFICHE CHEMIN DU SQUELETTE
+```
+
+</details>
+
+<a id="typeBalise"></a><details><summary>TYPE FILTRE</summary>
+
+DATE :
+
+```code
+Les filtres suivants s’appliquent aux dates ([(#DATE|filtre)]
+
+|affdate                               //
 ```
 
 </details>
