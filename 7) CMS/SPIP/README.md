@@ -428,6 +428,14 @@ DOCUMENTS :
 {par rang_lien}                     // ORDONNE DOCUMENTS SELON LEUR RANG
 ```
 
+LOGO :
+
+```CODE
+#LOGO{top/left/right/center/bottom}    // GERE ALIGNEMENT DU LOGO
+#LOGO{url}                             // AFFICHE LOGO QUI POINTE VERS LE LIEN(url)
+#LOGO**                                // RENVOIE LE FICHIER
+```
+
 SITE :
 
 ```code
@@ -778,8 +786,8 @@ SYNDIC_ARTICLES :
 #TAGS                                  // AFFICHE TAGS DE L'ARTICLE SYNDIQUES
 
 #NOM_SITE                              // AFFICHE NOM DU SITE SYNDIQUES CONTENANT ARTICLE
-#URL_SITE                              // AFFICHE URL DU SITE SYNDIQUES CONTENANT ARTICLE      
-#SOURCE                                // AFFICHE NOM DE LA VERITABLE SOURCE DE L'ARTICLE         
+#URL_SITE                              // AFFICHE URL DU SITE SYNDIQUES CONTENANT ARTICLE
+#SOURCE                                // AFFICHE NOM DE LA VERITABLE SOURCE DE L'ARTICLE
 #URL_SOURCE                            // AFFICHE URL DE LA VERITABLE SOURCE DE L'ARTICLE
 
 #RAW_DATA                              // AFFICHE PARTIE FLUX RSS DE L'ARTICLE COURANT
@@ -915,10 +923,71 @@ Les filtres suivants s’appliquent aux dates ([(#TEXTE|filtre)]
 [(#TEXTE|replace{au temps,autant})]   // REMPLACE DES MOTS DU TEXTES PAR D'AUTRES                          
 ```
 
+LOGO :
+
+```code
+#LOGO|fichier                         // AFFICHE LE NOM DU FICHIER CORRESPONDANT AU LOGO
+#LOGO|hauteur                         // AFFICHE HAUTEUR DU LOGO
+#LOGO|largeur                         // AFFICHE LARGEUR DU LOGO
+#LOGO|image_reduire                   // AFFICHE TAILLE DE IMAGE REDUITE
+#LOGO|image_reduire{largeur,hauteur}  // AFFICHE TAILLE MAXIMALE DE L'IMAGE
+```
+
+MATHEMATIQUE :
+
+```code
+#COMPTEUR_BOUCLE|plus{10}              // AFFICHE NOMBRE DE BOUCLE PLUS 10
+#COMPTEUR_BOUCLE|moins{xx}             // AFFICHE NOMBRE DE BOUCLE MOINS 10
+#COMPTEUR_BOUCLE|mult{xx}              // AFFICHE NOMBRE DE BOUCLE MULTIPLIER 10
+#COMPTEUR_BOUCLE|div{xx}               // AFFICHE NOMBRE DE BOUCLE DIVISER 10 APRES VIRGULE
+#COMPTEUR_BOUCLE|modulo{xx}            // AFFICHE NOMBRE DE BOUCLE RESTE DE LA DIVISION 10
+
+#COMPTEUR_BOUCLE|alterner{a,b,c,...}   // AFFICHE ELEMENT DE MANIERE ALTERNER EN FONCTION D'UN ELEMENT (bg, class, ..)
+
+<BOUCLE_lesarticles(ARTICLES) {par titre}>
+   <li style="background: [(#COMPTEUR_BOUCLE|alterner{'white','yellow'})]">#TITRE</li>
+</BOUCLE_lesarticles>
+```
+
 TEST :
 
 ```CODE
+|oui                                  // PERMET DE RETOURNER UN ELEMENT NON VIDE (MET UN ESPACE) TRUE
+|non                                  // PERMET DE RETOURNER UN ELEMENT VIDE MEME SI CONTENU FALSE
 
+_sisinon_
+
+[(#TEXTE|?{#TEXTE,"pas de texte"})]   // AFFICHE ELEMENT SI NON-VIDE, SINON AFFICHE CELA "pas de texte"
+|?{vrai,faux}
+
+[(#TEXTE|sinon{"pas de texte"})]      // AFFICHE ELEMENT SI NON-VIDE, SINON AFFICHE CELA "pas de texte"
+|sinon
+
+_condition_
+
+[(#CHAPO|et{#TEXTE})]                 // PERMET DE VERIFIER QUE LES DEUX CONNDITION SONT TRUE
+|et
+
+[(#CHAPO|ou{#TEXTE})                  // PERMET DE VERIFIER QUE L'UNE DES CONTIONS EST TRUE
+|ou
+
+[(#CHAPO|xou{#TEXTE})                 // PERMET DE VERIFIER QUE UN OU LES DEUX ELEMENT SONT TRUE
+|xou
+
+[(#CHAPO|=={"true"})
+|=={valeur}                           // VERIFIERA QUE LA VALEUR ET EGAL
+|>{valeur}                            // VERIFIERA QUE LA VALEUR ET INFERIEUR
+|>={valeur}                           // VERIFIERA QUE LA VALEUR ET INFERIEUR OU EGAL
+|<{valeur}                            // VERIFIERA QUE LA VALEUR ET SUPERIEUR
+|<={valeur}                           // VERIFIERA QUE LA VALEUR ET SUPERIEUR OU EGAL
+
+
+```
+
+LANG :
+
+```CODE
+#LANG|traduire_nom_langue{fr}           // TRADUIT français
 ```
 
 </details>
