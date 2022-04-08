@@ -15,7 +15,7 @@ SPIP est un CMS qui facilite l'implantation dynamique de contenue à l'aide d'un
       - [<ins>SPIP : 4.1 TYPE DE BOUCLE](#insspip--41-type-de-boucle)
       - [<ins>SPIP : 4.2 TYPE DE CRITERE](#insspip--42-type-de-critere)
       - [<ins>SPIP : 4.3 TYPE DE BALISE](#insspip--43-type-de-balise)
-    - [<ins>SPIP : 5. ADVANCED FUNCTIONS <a id="advanced"></a>](#insspip--5-advanced-functions-)
+    - [<ins>SPIP : 5 PLUGIN](#insspip--5-plugin)
 
 ---
 
@@ -991,7 +991,83 @@ LANG :
 ```
 
 </details>
+</details>
 
 ---
 
-### <ins>SPIP : 5. ADVANCED FUNCTIONS <a id="advanced"></a>
+<a id="advanced"></a><details><summary>ADVANCED FUNCTIONS</summary>
+
+### <ins>SPIP : 5 PLUGIN
+
+Les plugins permet d'ajouter des functions pour spip ou implementer un sequelette.
+
+On fournis le plugin sous forme d'un fichier zip à décompressé dans le dossier plugin.
+
+il existe un model de base https://plugins.spip.net/fabrique.html de plugin.
+
+<a id="typeBoucle"></a><details><summary>CREATE PLUGIN</summary>
+
+Créer un dossier plugin qui va recevoir tous les plugins et activer le via configuration -> Gestion plugin -> Inactif
+
+```code
+racine
+  |- plugins
+  |     |- plugin1
+  |     |- plugin2
+  |- squelettes
+  |- ...
+```
+
+Un fichier paquet.xml doit être présent à la racine de tous plugins, il contient la description du plugin  
+
+- Indications sur la nature du plugin, pour sa présentation et son utilisation dans l’univers SPIP
+- Les auteurs, licences et crédits
+- Les liens de dépendance avec d’autres plugins
+- La déclaration des pipelines définis
+
+```code
+
+INFORMATION TECHNIQUE
+<paquet 
+  prefix="mots_techniques"
+  categorie="outil"
+  version="1.0.4"
+  etat="stable"
+  compatibilite="[3.0.0;3.2.*]"
+  logo="img/image01.png"
+  schema="0.3"
+  documentation="https://contrib.spip.net/?article3726"
+>
+
+INFORMATION AUTEUR ET PLUGIN
+  <nom>Mots techniques</nom>
+  <auteur>Jérémy SALETTES-WOZNIAK</auteur>
+  <auteur>Joseph</auteur>
+  <licence>GNU/GPL</licence>
+  <credit lien="http://www.iconfinder.com/icondetails/10622/48/orange_tag_icon">Jérémy SALETTES-WOZNIAK</credit>
+
+
+DEPENDANCE : 
+  // necessite saisies 2.0.0 minimum
+  <necessite nom="saisies" compatibilite="[2.0.0;)" />
+  // necessite saisies < 2.0.0
+  <necessite nom="saisies" compatibilite="[;2.0.0)" />
+  // necessite saisies >= 2.0.0, et <= 2.1.0
+  <necessite nom="saisies" compatibilite="[2.0.0;2.1.0]" />
+  // utilise une dépendance optionnelle
+  <utilise nom="mots" compatibilite="[2.4.6;[" />
+
+PIPELINE
+  <pipeline nom="autoriser"  inclure="mots_techniques_autorisations.php" />
+  <pipeline nom="pre_boucle" inclure="mots_techniques_pipelines.php" />
+  <pipeline nom="declarer_tables_objets_sql" inclure="base/mots_techniques.php" />
+  <pipeline nom="declarer_champs_extras"     inclure="base/mots_techniques.php" />
+  <pipeline nom="groupes_mots_arborescents_heritages" inclure="base/mots_techniques.php" />
+
+
+</paquet>
+```
+
+</details>
+
+</details>
